@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apoie o Instituto São Paio. Sua doação mantém projetos gratuitos de cultura, educação e esporte em São Gonçalo, RJ.">
+    <title>Instituto São Paio — Doe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        /* Aplica o tema salvo antes da página aparecer (evita "piscar") */
+        (function(){try{var t=localStorage.getItem('isp-tema');if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
+    </script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Instituto São Paio">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            <a class="nav-link" href="iniciativas.html">Iniciativas</a>
+            <a class="nav-link" href="panorama.html">Espaço Panorama</a>
+            <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link" href="impacto.html">Impacto</a>
+            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="btn btn--accent" href="doe.html">DOE</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <p class="hero-eyebrow">Apoie</p>
+        <h1 class="hero-title">Faça uma Doação</h1>
+        <p>Cada contribuição mantém de pé projetos gratuitos de cultura, educação e esporte em São Gonçalo.</p>
+    </section>
+
+    <section class="section">
+        <div class="container doe-grid">
+            <!-- Dados bancários (EXEMPLO - troque pelos dados reais do Instituto) -->
+            <div class="doe-card reveal">
+                <h3><i class="fas fa-building-columns" style="color:var(--vermelho);margin-right:8px;"></i> Dados bancários</h3>
+                <ul class="dados-banco">
+                    <li><span class="rotulo">Favorecido</span><span class="valor">Associação Instituto São Paio</span></li>
+                    <li><span class="rotulo">CNPJ</span><span class="valor">17.341.451/0001-95</span></li>
+                    <li><span class="rotulo">Banco</span><span class="valor">000 — Banco Exemplo</span></li>
+                    <li><span class="rotulo">Agência</span><span class="valor">0001</span></li>
+                    <li><span class="rotulo">Conta corrente</span><span class="valor">00000-0</span></li>
+                </ul>
+                <div class="pix-box">
+                    <i class="fas fa-qrcode" style="color:var(--azul);font-size:1.4rem;"></i>
+                    <div><div class="rotulo" style="font-size:13px;color:var(--texto-suave);">Chave PIX (CNPJ)</div>
+                    <div class="chave">17.341.451/0001-95</div></div>
+                </div>
+                <p style="font-size:12px;color:var(--vermelho);margin-top:14px;">⚠️ Dados bancários de exemplo — substitua pelos dados reais da conta do Instituto.</p>
+            </div>
+
+            <!-- QR Code -->
+            <div class="qr-card reveal">
+                <h3 style="color:var(--azul);margin-bottom:18px;">Doe pelo PIX</h3>
+                <img src="img/qrcode-doe.png" alt="QR Code para doação via PIX (exemplo)">
+                <p>Abra o app do seu banco, escolha pagar com PIX e escaneie o código.</p>
+                <p class="aviso">⚠️ QR Code de exemplo — gere o QR real do PIX do Instituto e substitua o arquivo img/qrcode-doe.png.</p>
+            </div>
+        </div>
+
+        <div class="container" style="text-align:center;margin-top:40px;">
+            <p class="section-sub" style="margin-bottom:18px;">Prefere apoiar de outra forma ou virar parceiro? Fale com a nossa equipe.</p>
+            <a class="btn btn--primary" href="contato.html">Fale conosco</a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @institutosaopaio</a>
+        </div>
+    </section>
+    <!-- ===== RODAPE (igual em todas as paginas) ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <p>Organização do Terceiro Setor e Ponto de Cultura, transformando vidas por meio do esporte, da cultura, da educação e da arte em São Gonçalo e no Leste Fluminense.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" aria-label="Instagram do Instituto"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/espacoculturalpanorama/" target="_blank" rel="noopener" aria-label="Instagram do Espaço Panorama"><i class="fas fa-masks-theater"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Odete São Paio, 151 — Colubandê, São Gonçalo - RJ</li>
+                    <li><i class="fas fa-envelope"></i> contato@institutosaopaio.org</li>
+                    <li><i class="fas fa-phone"></i> (21) 9 7343-3073</li>
+                    <li><i class="fas fa-id-card"></i> CNPJ 17.341.451/0001-95</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="iniciativas.html">Iniciativas</a></li>
+                    <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
+                    <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="doe.html">Faça uma doação</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span class="ano-atual">2026</span> Associação Instituto São Paio — Ponto de Cultura · CNPJ 17.341.451/0001-95 · São Gonçalo, RJ.
+        </div>
+    </footer>
+
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

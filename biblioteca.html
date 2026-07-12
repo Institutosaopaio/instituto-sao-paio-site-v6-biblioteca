@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Biblioteca Comunitária A Casa Amarela Oton São Paio chega a São Gonçalo: leitura, cultura, cuidado e educação no Espaço Cultural Panorama, no Colubandê. Uma iniciativa do Instituto Ciclos do Brasil em parceria com o Instituto São Paio.">
+    <title>Biblioteca A Casa Amarela Oton São Paio — Instituto São Paio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        /* Aplica o tema salvo antes da página aparecer (evita "piscar") */
+        (function(){try{var t=localStorage.getItem('isp-tema');if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
+    </script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Instituto São Paio">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            <a class="nav-link" href="iniciativas.html">Iniciativas</a>
+            <a class="nav-link" href="panorama.html">Espaço Panorama</a>
+            <a class="nav-link active" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link" href="impacto.html">Impacto</a>
+            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="btn btn--accent" href="doe.html">DOE</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== TOPO DA PÁGINA =====
+         ADMIN: o selo (Em breve · inauguração em agosto) e o horário de
+         funcionamento são editados no painel admin.html, aba "Biblioteca".
+         Quando a biblioteca inaugurar, basta trocar lá — nada de mexer aqui. -->
+    <section class="page-hero">
+        <p class="hero-eyebrow"><i class="fas fa-seedling"></i> <span data-bib="selo">Em breve · inauguração em agosto</span></p>
+        <h1 class="hero-title">Biblioteca A Casa Amarela<br>Oton São Paio</h1>
+        <p>Unidade São Gonçalo · Espaço Cultural Panorama — uma biblioteca viva, feita de livros, pessoas e afeto, no coração do Colubandê.</p>
+        <p data-bib="horario" style="display:none; font-weight:700; color:var(--amarelo);"></p>
+        <div class="bib-logos-hero">
+            <img src="img/biblioteca/logo-casa-amarela.png" alt="Logo da Biblioteca A Casa Amarela">
+            <img src="img/biblioteca/tile-instituto-sao-paio.png" alt="Logo do Instituto São Paio">
+        </div>
+    </section>
+
+    <!-- Aviso especial (editado no admin, aba Biblioteca; só aparece se preenchido) -->
+    <div class="ponto-cultura" data-bib="aviso-box" style="display:none;">
+        <strong data-bib="aviso"></strong>
+    </div>
+
+    <!-- Faixa amarela: nome e sobrenome -->
+    <div class="ponto-cultura">
+        <span class="selo-tag">Nossa casa tem nome e sobrenome</span><br>
+        <strong>Em homenagem a quem plantou essa história, levamos o nome de Oton São Paio.</strong>
+        <p>Biblioteca Comunitária A Casa Amarela <b>Oton São Paio</b> — Unidade São Gonçalo.</p>
+    </div>
+
+    <!-- ===== HISTÓRIA ===== -->
+    <section class="section">
+        <div class="container media-row">
+            <div class="reveal">
+                <span class="eyebrow">Nossa história</span>
+                <h2 class="section-title" style="text-align:left;">Um lugar onde a leitura acolhe</h2>
+                <p>A Casa Amarela é um lugar onde a leitura acolhe, a comunidade se encontra e novos futuros começam.
+                A <strong>Biblioteca Comunitária A Casa Amarela</strong> nasceu com a missão de democratizar o acesso à leitura,
+                à cultura, ao cuidado emocional e às oportunidades de desenvolvimento. Mais do que um espaço físico,
+                somos um território vivo de encontros, afeto e transformação.</p>
+                <p>Todos os dias, crianças, jovens, adultos e idosos passam pelas nossas salas para ler, estudar,
+                receber apoio, participar de oficinas, assistir ao cineminha, conversar, aprender e compartilhar
+                suas histórias. A Casa Amarela é feita <strong>para e com a comunidade</strong> — um espaço onde cada
+                pessoa é bem-vinda, respeitada e reconhecida.</p>
+                <p>Acreditamos que a leitura abre caminhos, que a cultura fortalece identidades e que o cuidado
+                transforma realidades. Somos uma biblioteca, mas também somos muito mais: um ponto de encontro,
+                uma rede de apoio e um lugar onde vidas mudam todos os dias.</p>
+            </div>
+            <div class="reveal">
+                <div class="arco-frame">
+                    <img src="img/biblioteca/fachada-panorama.jpg" alt="Fachada colorida do galpão do Espaço Cultural Panorama, com mural de flores, onde funcionará a Biblioteca A Casa Amarela">
+                </div>
+                <p class="arco-legenda"><i class="fas fa-location-dot"></i> É aqui que a história vai morar: o galpão colorido do Espaço Cultural Panorama — Rua Odete São Paio, 151, Colubandê.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== O QUE VOCÊ VAI ENCONTRAR ===== -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Uma biblioteca feita de pessoas</span>
+                <h2 class="section-title">Aqui, você vai encontrar</h2>
+                <p class="section-sub">Nossos projetos nascem da escuta do território e da convivência diária com crianças,
+                jovens, adultos e famílias. Cada iniciativa fortalece vínculos, amplia oportunidades e transforma realidades
+                de forma concreta e afetiva.</p>
+            </div>
+            <div class="grid grid--4">
+                <article class="card reveal">
+                    <div class="card-icon icon-azul"><i class="fas fa-book-open"></i></div>
+                    <h3>Leitura</h3>
+                    <p>Livros para todas as idades, do infantil ao RPG — com empréstimo gratuito e carteirinha da comunidade.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon icon-vermelho"><i class="fas fa-masks-theater"></i></div>
+                    <h3>Cultura</h3>
+                    <p>Encontros, arte, cineminha e histórias no Espaço Cultural Panorama.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon icon-amarelo"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Cuidado</h3>
+                    <p>Um lugar seguro para ser quem você é, com acolhimento e escuta.</p>
+                </article>
+                <article class="card reveal">
+                    <div class="card-icon icon-azul"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Educação</h3>
+                    <p>Aprendizado que caminha lado a lado com a escola, as famílias e o território.</p>
+                </article>
+            </div>
+            <ul class="valores-list reveal" style="margin-top:34px;">
+                <li><i class="fas fa-check"></i> Educação e arte</li>
+                <li><i class="fas fa-check"></i> Acolhimento psicológico</li>
+                <li><i class="fas fa-check"></i> Inclusão digital</li>
+                <li><i class="fas fa-check"></i> Empreendedorismo feminino</li>
+                <li><i class="fas fa-check"></i> Segurança alimentar</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== ORIGEM E PARCERIA ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Quem faz essa casa existir</span>
+                <h2 class="section-title">Toda casa começa com um encontro</h2>
+                <p class="section-sub">A Casa Amarela nasceu do sonho do professor e escritor <strong>Pedro Gerolimich</strong>,
+                o querido <strong>"Pedro do Livro"</strong>, grande idealizador de projetos de incentivo à leitura. Desse sonho
+                surgiu, em <strong>Anchieta</strong> — onde fica a sede oficial —, a Biblioteca Comunitária A Casa Amarela,
+                iniciativa do <strong>Instituto Ciclos do Brasil</strong>.</p>
+            </div>
+            <div class="container" style="max-width:820px;">
+                <p class="reveal" style="color:var(--texto-suave);text-align:center;margin-bottom:34px;">
+                Agora, essa história ganha um novo capítulo: a unidade São Gonçalo chega pelas mãos do
+                <strong>Instituto São Paio</strong>, responsável por coordenar a biblioteca dentro do Espaço Cultural
+                Panorama. Dois times, um mesmo sonho: <strong>abrir portas pela leitura</strong>.</p>
+            </div>
+            <div class="trio-logos reveal">
+                <div class="trio-box" title="Instituto Ciclos do Brasil — idealizador"><img src="img/biblioteca/logo-ciclos.png" alt="Instituto Ciclos do Brasil"></div>
+                <span class="trio-mais">+</span>
+                <div class="trio-box" title="Instituto São Paio — coordena a unidade São Gonçalo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <span class="trio-mais">=</span>
+                <div class="trio-box trio-box--azul" title="Biblioteca A Casa Amarela — Unidade São Gonçalo"><img src="img/biblioteca/logo-casa-amarela.png" alt="Biblioteca A Casa Amarela"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOMENAGEM: OTON SÃO PAIO ===== -->
+    <section class="section section--blue">
+        <div class="container media-row">
+            <div class="reveal">
+                <div class="oton-frame">
+                    <img src="img/biblioteca/oton-sao-paio.jpg" alt="Retrato do professor, poeta e educador Oton São Paio"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="oton-fallback" style="display:none;"><span>Oton<br>São Paio</span><small>1949 — 2026</small></div>
+                </div>
+            </div>
+            <div class="reveal">
+                <span class="eyebrow">A homenagem</span>
+                <h2 class="section-title" style="text-align:left;color:#fff;">Quem foi Oton São Paio?</h2>
+                <p style="color:#cfe0f5;">Educador, poeta, escritor e político gonçalense, <strong style="color:#fff;">Oton José São Paio de
+                Menezes</strong> (1949–2026) é uma das maiores referências da cultura e da educação de São Gonçalo —
+                e o patrono do Instituto São Paio, que leva seu sobrenome.</p>
+                <p style="color:#cfe0f5;">Fundador do <strong style="color:#fff;">Colégio Odete São Paio</strong>, foi o idealizador e primeiro
+                presidente da <strong style="color:#fff;">Academia Gonçalense de Letras, Artes e Ciências</strong> (1974), ocupando a
+                cadeira nº 1, que tem Manuel Bandeira como patrono. Foi vereador, deputado estadual, Secretário de
+                Educação e Secretário de Cultura do município, presidente da Associação Cultural de São Gonçalo e
+                integrante de grupos de assistência social e de valorização da poesia, como o Grupo Ciranda.</p>
+                <p style="color:#cfe0f5;">É autor de obras como <em>"A finalidade da vida é a alegria"</em>, <em>"Você é aquilo
+                que você pensa"</em>, <em>"Painel do Olhar"</em> e <em>"Amanhecer das Palavras"</em>.</p>
+                <p style="color:#fff;font-weight:600;">Dar o seu nome à biblioteca é semear, em cada leitor, o que ele
+                plantou a vida inteira: a certeza de que a educação e a poesia transformam uma cidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VÍDEOS DA CAMPANHA ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Em breve, um novo capítulo</span>
+                <h2 class="section-title">Espia o que vem por aí</h2>
+                <p class="section-sub">O vento mudou em São Gonçalo. Acompanhe a contagem regressiva para a inauguração
+                no Instagram <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" style="color:var(--azul);font-weight:700;">@institutosaopaio</a>.</p>
+            </div>
+            <div class="video-grid reveal">
+                <figure class="video-card">
+                    <video controls preload="none" poster="video/poster-teaser.jpg" playsinline>
+                        <source src="video/casa-amarela-teaser.mp4" type="video/mp4">
+                        Seu navegador não reproduz vídeos. Baixe em video/casa-amarela-teaser.mp4
+                    </video>
+                    <figcaption>Teaser — algo está nascendo em São Gonçalo</figcaption>
+                </figure>
+                <figure class="video-card">
+                    <video controls preload="none" poster="video/poster-o-lugar.jpg" playsinline>
+                        <source src="video/casa-amarela-o-lugar.mp4" type="video/mp4">
+                        Seu navegador não reproduz vídeos. Baixe em video/casa-amarela-o-lugar.mp4
+                    </video>
+                    <figcaption>O lugar — o galpão colorido do Panorama</figcaption>
+                </figure>
+            </div>
+            <p class="reveal" style="text-align:center;color:var(--texto-suave);margin-top:26px;">
+                <i class="fas fa-map-marker-alt" style="color:var(--vermelho);"></i>
+                <span data-bib="inauguracao">Em agosto, a Casa Amarela abre as portas no Espaço Cultural Panorama — Rua Odete São Paio, 151, Colubandê, São Gonçalo/RJ.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section doe-band">
+        <div class="container">
+            <div class="section-head" style="margin-bottom:0;">
+                <h2 class="section-title">Essa história também é sua</h2>
+                <p style="margin-top:14px;">Apoie a Biblioteca A Casa Amarela e ajude a abrir portas pela leitura desde o primeiro capítulo.</p>
+                <a class="btn btn--light" href="doe.html">Quero apoiar</a>
+                <a class="btn btn--outline-light" href="contato.html" style="margin-left:8px;">Quero ser parceiro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RODAPE (igual em todas as paginas) ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <p>Organização do Terceiro Setor e Ponto de Cultura, transformando vidas por meio do esporte, da cultura, da educação e da arte em São Gonçalo e no Leste Fluminense.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" aria-label="Instagram do Instituto"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/espacoculturalpanorama/" target="_blank" rel="noopener" aria-label="Instagram do Espaço Panorama"><i class="fas fa-masks-theater"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Odete São Paio, 151 — Colubandê, São Gonçalo - RJ</li>
+                    <li><i class="fas fa-envelope"></i> contato@institutosaopaio.org</li>
+                    <li><i class="fas fa-phone"></i> (21) 9 7343-3073</li>
+                    <li><i class="fas fa-id-card"></i> CNPJ 17.341.451/0001-95</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="iniciativas.html">Iniciativas</a></li>
+                    <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
+                    <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="doe.html">Faça uma doação</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span class="ano-atual">2026</span> Associação Instituto São Paio — Ponto de Cultura · CNPJ 17.341.451/0001-95 · São Gonçalo, RJ.
+        </div>
+    </footer>
+
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

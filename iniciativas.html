@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iniciativas do Instituto São Paio: esporte, educação e cultura com cursos gratuitos, oficinas e projetos sociais em São Gonçalo.">
+    <title>Instituto São Paio — Iniciativas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        /* Aplica o tema salvo antes da página aparecer (evita "piscar") */
+        (function(){try{var t=localStorage.getItem('isp-tema');if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
+    </script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Instituto São Paio">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            <a class="nav-link active" href="iniciativas.html">Iniciativas</a>
+            <a class="nav-link" href="panorama.html">Espaço Panorama</a>
+            <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link" href="impacto.html">Impacto</a>
+            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="btn btn--accent" href="doe.html">DOE</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <p class="hero-eyebrow">O que fazemos</p>
+        <h1 class="hero-title">Nossas Iniciativas</h1>
+        <p>Três frentes que se conectam: esporte, educação e cultura — sempre de forma gratuita ou acessível.</p>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid grid--3">
+                <article class="card reveal" data-area="esporte">
+                    <div class="card-icon icon-azul"><i class="fas fa-futbol"></i></div>
+                    <h3>Esporte</h3>
+                    <p>Formação de alunos-atletas na Quadra Vini Jr., com disciplina, cooperação e superação.</p>
+                    <button class="btn-vermais">Ver mais</button>
+                </article>
+                <article class="card reveal" data-area="educacao">
+                    <div class="card-icon icon-vermelho"><i class="fas fa-book-open"></i></div>
+                    <h3>Educação</h3>
+                    <p>Cursos gratuitos, leitura e formação que abrem portas para a comunidade.</p>
+                    <button class="btn-vermais">Ver mais</button>
+                </article>
+                <article class="card reveal" data-area="cultura">
+                    <div class="card-icon icon-amarelo"><i class="fas fa-masks-theater"></i></div>
+                    <h3>Cultura e Arte</h3>
+                    <p>Teatro, cinema, podcast e dança no Espaço Cultural Panorama.</p>
+                    <button class="btn-vermais">Ver mais</button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Oficinas, cursos e projetos</span>
+                <h2 class="section-title">Em andamento e realizados</h2>
+            </div>
+            <div class="grid grid--3">
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-producao-executiva.jpeg" alt="Produção Executiva">
+                    <div class="proj-body">
+                        <span class="ano">2024</span>
+                        <h3>Produção Executiva</h3>
+                        <p>Curso gratuito de audiovisual (podcast, drone, câmera, direção de arte) com a Produplay, via Lei Paulo Gustavo.</p>
+                        <a class="proj-link" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-acessibilidade.jpg" alt="Acessibilidade no Audiovisual">
+                    <div class="proj-body">
+                        <span class="ano">2024</span>
+                        <h3>Acessibilidade no Audiovisual</h3>
+                        <p>Curso "Pensar Acessibilidade no Audiovisual", em parceria com a Produplay e a Lei Paulo Gustavo.</p>
+                        <a class="proj-link" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-liberte-um-livro.png" alt="Liberte um Livro">
+                    <div class="proj-body">
+                        <span class="ano">Em andamento</span>
+                        <h3>Liberte um Livro</h3>
+                        <p>Campanha que arrecada livros para estruturar o acervo da futura Biblioteca A Casa Amarela.</p>
+                        <a class="proj-link" href="https://www.instagram.com/p/DT3QpKSAbk4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-teatro-danca.svg" alt="Teatro e Dança de Salão">
+                    <div class="proj-body">
+                        <span class="ano">Em andamento</span>
+                        <h3>Teatro e Dança de Salão</h3>
+                        <p>Turmas no Colubandê com mensalidades de base social e 10% das vagas como bolsas para áreas de risco.</p>
+                        <a class="proj-link" href="https://radarnewsrj.com.br/2026/03/31/curso-danca-de-salao-professora-amanda-rosas-sao-goncalo/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-resenha-ies.svg" alt='Videocast A Resenha do IES'>
+                    <div class="proj-body">
+                        <span class="ano">2025–2026</span>
+                        <h3>Videocast "A Resenha do IES"</h3>
+                        <p>Produzido no estúdio do Panorama, valoriza as trajetórias de multiartistas fluminenses.</p>
+                        <a class="proj-link" href="https://radarnewsrj.com.br/2026/04/04/podcast-sao-goncalo-a-resenha-do-ies-busca-apoio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/proj-cineclube.svg" alt="Cineclube Panorama">
+                    <div class="proj-body">
+                        <span class="ano">2026</span>
+                        <h3>Cineclube Panorama</h3>
+                        <p>Sessões de cinema com ingressos gratuitos ou populares, abrindo o teatro para a comunidade.</p>
+                        <a class="proj-link" href="https://lestefluminensenews.com.br/2026/04/06/instituto-sao-paio-estrutura-corredor-cultural-no-colubande-com-nova-biblioteca-e-retorno-de-cineclube/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Projeto futuro</span>
+                <h2 class="section-title">Corredor Cultural</h2>
+                <p class="section-sub">Transformar a Rua Odete São Paio em um grande corredor de cultura, com novos espaços para a cidade.</p>
+            </div>
+            <div class="grid grid--3">
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/corredor-galpao.svg" alt="Galpão Multiuso">
+                    <div class="proj-body">
+                        <span class="ano">Projeto futuro</span>
+                        <h3>Galpão Multiuso</h3>
+                        <p>Espaço para feiras de negócios e eventos, fomentando a economia criativa de São Gonçalo.</p>
+                        <a class="proj-link" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/corredor-casa-resiliencia.svg" alt="Casa da Resiliência">
+                    <div class="proj-body">
+                        <span class="ano">Projeto futuro</span>
+                        <h3>Casa da Resiliência</h3>
+                        <p>Orientação para adaptar moradias às mudanças do clima, reduzindo riscos para as famílias.</p>
+                        <a class="proj-link" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card proj-card reveal">
+                    <img class="proj-img" src="img/corredor-biblioteca.svg" alt="Biblioteca A Casa Amarela">
+                    <div class="proj-body">
+                        <span class="ano">Projeto futuro</span>
+                        <h3>Biblioteca A Casa Amarela</h3>
+                        <p>Acervo físico e digital, oficinas de arte e sessões de cinema, em parceria com o Instituto Ciclos do Brasil.</p>
+                        <a class="proj-link" href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- ===== MODAL (cards "Ver mais") ===== -->
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <span class="modal-tag" id="modal-tag">Iniciativa</span>
+                <button class="modal-close" id="modal-fechar" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-titulo"></h2>
+                <p class="modal-desc" id="modal-descricao"></p>
+                <h3 class="modal-sub">O que realizamos nesta área</h3>
+                <ul class="modal-list" id="modal-itens"></ul>
+            </div>
+            <div class="modal-foot">
+                <button class="btn btn--ghost" id="modal-fechar-2">Fechar</button>
+                <a class="btn btn--accent" href="contato.html">Fale conosco</a>
+            </div>
+        </div>
+    </div>
+    <!-- ===== RODAPE (igual em todas as paginas) ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <p>Organização do Terceiro Setor e Ponto de Cultura, transformando vidas por meio do esporte, da cultura, da educação e da arte em São Gonçalo e no Leste Fluminense.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" aria-label="Instagram do Instituto"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/espacoculturalpanorama/" target="_blank" rel="noopener" aria-label="Instagram do Espaço Panorama"><i class="fas fa-masks-theater"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Odete São Paio, 151 — Colubandê, São Gonçalo - RJ</li>
+                    <li><i class="fas fa-envelope"></i> contato@institutosaopaio.org</li>
+                    <li><i class="fas fa-phone"></i> (21) 9 7343-3073</li>
+                    <li><i class="fas fa-id-card"></i> CNPJ 17.341.451/0001-95</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="iniciativas.html">Iniciativas</a></li>
+                    <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
+                    <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="doe.html">Faça uma doação</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span class="ano-atual">2026</span> Associação Instituto São Paio — Ponto de Cultura · CNPJ 17.341.451/0001-95 · São Gonçalo, RJ.
+        </div>
+    </footer>
+
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

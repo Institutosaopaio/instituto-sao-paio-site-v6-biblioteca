@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="g19205" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EE3E41"/><stop offset="1" stop-color="#b32a2c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#g19205)"/>
+  <g transform="translate(320.0,136.0) scale(1.25)" fill="#ffffff" fill-opacity=".92"
+     stroke="#ffffff" stroke-opacity=".92" stroke-linecap="round"><path d="M-46 -20 L-40 -36 L40 -36 L46 -20 Z" fill="none" stroke-width="6"/><path d="M-46 -20 a8 8 0 0 0 16 0 a8 8 0 0 0 16 0 a8 8 0 0 0 16 0 a8 8 0 0 0 16 0" fill="none" stroke-width="6"/><rect x="-38" y="-6" width="76" height="42" fill="none" stroke-width="6"/><rect x="-12" y="10" width="24" height="26"/></g>
+  <text x="320.0" y="250.0" text-anchor="middle" fill="#ffffff" style="font-family:'Montserrat','Segoe UI',Arial,sans-serif;font-weight:800;font-size:24px;letter-spacing:.5px;">GALPAO MULTIUSO</text>
+  <g transform="translate(624,20)">
+    <rect x="-150" y="0" width="150" height="24" rx="12" fill="#000000" fill-opacity=".22"/>
+    <text x="-75" y="16" text-anchor="middle" fill="#ffffff"
+      style="font-family:'Montserrat','Segoe UI',Arial,sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;">FOTO ILUSTRATIVA</text>
+  </g>
+</svg>

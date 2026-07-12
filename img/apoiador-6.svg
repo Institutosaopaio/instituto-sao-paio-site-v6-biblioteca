@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 120" width="260" height="120">
+  <rect width="260" height="120" fill="none"/>
+  <circle cx="46" cy="60.0" r="26" fill="none" stroke="#8b94a3" stroke-width="4"/>
+  <circle cx="46" cy="60.0" r="10" fill="#8b94a3"/>
+  <text x="92" y="58.0" fill="#5d6b80" style="font-family:'Montserrat','Segoe UI',Arial,sans-serif;font-weight:800;font-size:20px;">Logo 6</text>
+  <text x="92" y="80.0" fill="#9aa6b6" style="font-family:'Montserrat','Segoe UI',Arial,sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;">APOIADOR</text>
+</svg>
