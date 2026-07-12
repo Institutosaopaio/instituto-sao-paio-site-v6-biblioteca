@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
        chega no e-mail de vocês. Enquanto estiver "SEU_ID_AQUI",
        o site avisa que o envio ainda não foi configurado.
        -------------------------------------------------------- */
-    var FORMSPREE_ID = 'SEU_ID_AQUI'; // <-- troque pelo seu ID do Formspree
+    var FORMSPREE_ID = 'xjgnvbpq';
 
     var form = document.getElementById('form-contato');
     if (form) {
