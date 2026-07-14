@@ -561,11 +561,14 @@ a { color: inherit; }
 }
 .apoiador-box:hover { transform: translateY(-4px); filter: drop-shadow(0 0 1px rgba(18, 30, 52, .38)) drop-shadow(0 10px 22px rgba(18, 30, 52, .24)); }
 .apoiador-box img { height: 100%; width: auto; max-width: 230px; object-fit: contain; }
+/* No modo noturno, um "cartão" branco garante a legibilidade de
+   qualquer logo (inclusive marcas escuras feitas para fundo claro). */
 html[data-tema="escuro"] .apoiador-box {
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, .45)) drop-shadow(0 6px 18px rgba(150, 185, 255, .28));
+    background: #fff; border-radius: 14px; padding: 10px 20px; box-sizing: border-box;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .35));
 }
 html[data-tema="escuro"] .apoiador-box:hover {
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, .55)) drop-shadow(0 10px 24px rgba(150, 185, 255, .36));
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .45));
 }
 @media (max-width: 520px) { .apoiador-box { height: 84px; } .apoiador-box img { max-width: 170px; } }
 
@@ -900,7 +903,6 @@ html[data-tema="escuro"] .tema-toggle { color: var(--amarelo); background: #1523
 }
 .trio-box:hover { transform: translateY(-4px); }
 .trio-box img { max-height: 100%; object-fit: contain; }
-.trio-box--azul { background: #2B3A9E; border-color: #2B3A9E; }
 .trio-mais { font-family: var(--display); font-size: 2.4rem; color: var(--amarelo); line-height: 1; }
 
 /* Quadro da homenagem ao Oton São Paio */
@@ -966,8 +968,9 @@ html[data-tema="escuro"] .tema-toggle { color: var(--amarelo); background: #1523
 }
 
 /* ---- Modo noturno da página da biblioteca ---- */
-html[data-tema="escuro"] .trio-box { background: #15233b; }
-html[data-tema="escuro"] .trio-box--azul { background: #2B3A9E; border-color: #35507a; }
+/* Os quadros de logo (trio-box) ficam sempre com fundo branco, de propósito:
+   as marcas (Ciclos, São Paio) são pretas/coloridas para fundo claro e
+   ficariam invisíveis num fundo escuro. */
 html[data-tema="escuro"] .video-card { background: #15233b; border-color: var(--borda); }
 html[data-tema="escuro"] .video-card figcaption { color: #8ab4f8; }
 html[data-tema="escuro"] .bib-banner { background: linear-gradient(135deg, #1c2a6e 0%, #132b52 100%); }

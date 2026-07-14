@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!raiz.getAttribute('data-tema')) {
             var pref = 'claro';
             try {
-                pref = localStorage.getItem('isp-tema') ||
-                    (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro');
+                pref = localStorage.getItem('isp-tema') || 'claro';
             } catch (err) {}
             raiz.setAttribute('data-tema', pref);
         }
