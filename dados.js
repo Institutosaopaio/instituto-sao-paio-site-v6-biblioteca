@@ -16,7 +16,7 @@ window.DADOS_SITE = {
     {
       "titulo": "Workday sobre interpretação para TV e Cinema",
       "tipo": "Oficina | Curso | Formação",
-      "data": "2026-07-02",
+      "data": "2026-08-02",
       "hora": "10h00",
       "sinopse": "Um panorama com dicas, orientações e informações sobre oportunidades no mercado de TV e cinema. Atividade prática onde os participantes vivenciam uma simulação de teste de elenco com orientação das profissionais.",
       "preco": "Palestra (combo 01 )R$ 88,00 · Palestra (individual adulto) R$ 66,00 · Palestra (simulação teste individual) R$ 181,50",
