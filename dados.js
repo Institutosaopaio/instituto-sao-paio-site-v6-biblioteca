@@ -1,18 +1,59 @@
 /* dados.js — gerado pelo painel admin.html em 2026-07-18
+   Atualizado em 13/09/2026: bloco "biblioteca" com a inauguração e o horário.
    Suba este arquivo na hospedagem no lugar do dados.js antigo. */
 
 window.DADOS_SITE = {
-  "atualizadoEm": "2026-07-18",
+  "atualizadoEm": "2026-09-13",
   "ocultarPassados": true,
   "biblioteca": {
-    "selo": "Em breve · inauguração em agosto",
-    "destaque": "Biblioteca A Casa Amarela Oton São Paio chega a São Gonçalo",
-    "texto": "Leitura, cultura, cuidado e educação no Espaço Cultural Panorama, em parceria com o Instituto Ciclos do Brasil. Um novo capítulo começa no Colubandê.",
-    "inauguracao": "Em agosto, a Casa Amarela abre as portas no Espaço Cultural Panorama — Rua Odete São Paio, 151, Colubandê, São Gonçalo/RJ.",
-    "horario": "",
+    "selo": "Inaugurada em 6 de agosto de 2026",
+    "destaque": "A primeira biblioteca comunitária de São Gonçalo já está de portas abertas",
+    "texto": "A Biblioteca A Casa Amarela Oton São Paio funciona dentro do Espaço Cultural Panorama, no Colubandê, com acervo para todas as idades, empréstimo gratuito e programação cultural. Tudo sem custo nenhum para quem chega.",
+    "inauguracao": "A Casa Amarela está aberta no Espaço Cultural Panorama, na Rua Odete São Paio, 151, Colubandê, São Gonçalo/RJ. Terças, quintas e sextas, das 9h às 17h.",
+    "horario": "Terças, quintas e sextas, das 9h às 17h",
     "aviso": ""
   },
   "programacao": [
+    {
+      "titulo": "O Céu Pode Esperar",
+      "tipo": "Teatro",
+      "data": "2026-10-10",
+      "hora": "18h00",
+      "sinopse": "Clara é uma jovem artista plástica que enfrenta problemas de saúde mental e a ausência de fé. Depois de uma crise no hospital, atravessa uma experiência de quase morte e uma viagem astral que muda tudo. No fim, as luzes se voltam para a plateia, que deixa de ser observadora e decide se Clara permanece encarnada ou se segue para o Umbral. São dois finais possíveis e quem escolhe é quem está assistindo. Com Ricardo Andrade Vassillievitch e Nayara Almeida, direção de Jefter Paulo. Classificação 12 anos, 1h10.",
+      "preco": "Ingressos pelo WhatsApp do Espaço Cultural Panorama",
+      "foto": "img/programacao/o-ceu-pode-esperar.jpg",
+      "linkIngresso": "https://wa.me/5521998529573"
+    },
+    {
+      "titulo": "A diretora é uma comédia",
+      "tipo": "Teatro",
+      "data": "2026-09-20",
+      "hora": "18h00",
+      "sinopse": "Margareth Pinto é uma desequilibrada diretora que tenta controlar a vida dos professores dentro e fora da sua escola. Uma comédia sobre o cotidiano escolar, com 90 minutos de duração e classificação 14 anos.",
+      "preco": "Ingressos pelo Sympla, com parcelamento em até 12x",
+      "foto": "img/programacao/a-diretora-e-uma-comedia.jpg",
+      "linkIngresso": "https://www.sympla.com.br/evento/a-diretora-e-uma-comedia/3471679"
+    },
+    {
+      "titulo": "Um oceano de aventuras",
+      "tipo": "Musical infantil",
+      "data": "2026-10-18",
+      "hora": "16h00",
+      "sinopse": "Uma jovem determinada embarca numa jornada pelo oceano para devolver o coração de uma divindade e salvar a sua ilha. Ao lado de um galo e de um semideus, enfrenta tempestades e criaturas fantásticas, com música, dança e magia. Classificação livre.",
+      "preco": "Ingressos pelo Sympla, com parcelamento em até 12x",
+      "foto": "img/programacao/um-oceano-de-aventuras.jpg",
+      "linkIngresso": "https://www.sympla.com.br/evento/um-oceano-de-aventuras/3577253"
+    },
+    {
+      "titulo": "Help! Noel perdeu os enfeites da árvore",
+      "tipo": "Espetáculo interativo",
+      "data": "2026-12-27",
+      "hora": "17h00",
+      "sinopse": "Espetáculo interativo de Natal da Cia Cultural Zafira. Papai Noel perdeu os enfeites da árvore e precisa da plateia para encontrar tudo antes da noite mais esperada do ano.",
+      "preco": "R$ 30,00",
+      "foto": "img/programacao/help-noel.jpg",
+      "linkIngresso": "https://wa.me/5521992590702"
+    },
     {
       "titulo": "Workday sobre interpretação para TV e Cinema",
       "tipo": "Oficina | Curso | Formação",
@@ -86,7 +127,7 @@ window.DADOS_SITE = {
   ],
   "galeria": [
     {
-      "foto": "img/Espaço_Cultural_Panorama_Teatro.jpg",
+      "foto": "img/espaco-cultural-panorama-teatro.jpg",
       "legenda": "Teatro do Espaço Cultural Panorama"
     }
   ],

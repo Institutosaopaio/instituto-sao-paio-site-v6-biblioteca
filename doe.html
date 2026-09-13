@@ -30,6 +30,7 @@
             <a class="nav-link" href="iniciativas.html">Iniciativas</a>
             <a class="nav-link" href="panorama.html">Espaço Panorama</a>
             <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link" href="acervo.html">Acervo Digital</a>
             <a class="nav-link" href="impacto.html">Impacto</a>
             <a class="nav-link" href="contato.html">Contato</a>
             <a class="btn btn--accent" href="doe.html">DOE</a>
@@ -65,8 +66,14 @@
             <!-- QR Code -->
             <div class="qr-card reveal">
                 <h3 style="color:var(--azul);margin-bottom:18px;">Doe pelo PIX</h3>
-                <img src="img/qrcode-doe.png" alt="QR Code para doação via PIX (exemplo)">
-                <p>Abra o app do seu banco, escolha pagar com PIX e escaneie o código.</p>
+                <img src="img/qrcode-doe.png" alt="QR Code para doação via PIX do Instituto São Paio"
+                     onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+                <div class="qr-espera" hidden>
+                    <i class="fas fa-qrcode"></i>
+                    <span>QR Code em atualização. Use a chave PIX abaixo.</span>
+                </div>
+                <p>Abra o app do seu banco, escolha pagar com PIX e use a chave
+                <strong>17.341.451/0001-95</strong>, o nosso CNPJ.</p>
             </div>
         </div>
 
@@ -103,6 +110,7 @@
                     <li><a href="iniciativas.html">Iniciativas</a></li>
                     <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
                     <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="acervo.html">Acervo Digital</a></li>
                     <li><a href="impacto.html">Impacto</a></li>
                     <li><a href="doe.html">Faça uma doação</a></li>
                 </ul>

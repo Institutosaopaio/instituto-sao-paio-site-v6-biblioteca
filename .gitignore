@@ -1,0 +1,8 @@
+# Arquivos de apoio locais, nao vao para o site
+ENVIAR PARA O GITHUB.bat
+COMO SUBIR NO GITHUB.txt
+_APAGAR/
+acervo-capas/
+*.tgz
+*.zip
+dp-catalogo.txt

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acervo Digital da Biblioteca A Casa Amarela Oton São Paio: mais de 1.800 obras de literatura, literatura infantil e cordel em domínio público, com capa e leitura direta, de graça, sem cadastro e sem anúncio.">
+    <title>Acervo Digital — Biblioteca A Casa Amarela Oton São Paio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        /* Aplica o tema salvo antes da página aparecer (evita "piscar") */
+        (function(){try{var t=localStorage.getItem('isp-tema')||'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
+    </script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Instituto São Paio">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            <a class="nav-link" href="iniciativas.html">Iniciativas</a>
+            <a class="nav-link" href="panorama.html">Espaço Panorama</a>
+            <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link active" href="acervo.html">Acervo Digital</a>
+            <a class="nav-link" href="impacto.html">Impacto</a>
+            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="btn btn--accent" href="doe.html">DOE</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <p class="hero-eyebrow"><i class="fas fa-book-open"></i> Biblioteca A Casa Amarela Oton São Paio</p>
+        <h1 class="hero-title">Acervo Digital</h1>
+        <p>A estante da Casa Amarela também cabe no seu bolso. Aqui a gente reúne, num lugar só, as obras de literatura, literatura infantil e cordel
+        que já pertencem a todo mundo, prontas para ler no celular, no computador ou imprimir em casa.</p>
+        <div class="acervo-numeros">
+            <span><b>1.801</b> livros</span>
+            <span><b>9</b> gêneros</span>
+            <span><b>Sem</b> cadastro</span>
+            <span><b>Sem</b> anúncio</span>
+        </div>
+    </section>
+
+    <!-- ===== RECOMENDADOS DE HOJE (passa sozinho) ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow" id="rec-eyebrow">Vitrine do dia</span>
+                <h2 class="section-title" id="rec-titulo">Livros recomendados hoje</h2>
+                <p class="section-sub" id="rec-sub">Para quem não sabe por onde começar. A vitrine passa sozinha e a seleção muda todo dia.</p>
+            </div>
+            <div class="rec-palco reveal">
+                <div class="rec-trilho" id="rec-trilho"></div>
+            </div>
+            <div class="rec-pontos" id="rec-pontos"></div>
+        </div>
+    </section>
+
+    <!-- ===== ACERVO ===== -->
+    <section class="section section--alt" id="acervo">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Domínio público</span>
+                <h2 class="section-title">Nosso acervo</h2>
+                <p class="section-sub">São mais de mil e oitocentas obras. Busque pelo título ou pelo nome de quem escreveu, filtre por gênero e escolha a prateleira. Os três funcionam juntos.</p>
+            </div>
+            <div class="busca-caixa reveal">
+                <div class="acervo-ferramentas">
+                    <div class="acervo-busca">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <input type="search" id="acervo-busca" placeholder="Machado de Assis, Iracema, cordel..." aria-label="Buscar no acervo por título ou autor">
+                    </div>
+                    <label class="acervo-ordem">
+                        <span>Ordenar por</span>
+                        <select id="acervo-ordem" aria-label="Ordenar o acervo">
+                            <option value="titulo">Título, de A a Z</option>
+                            <option value="autor">Autor, de A a Z</option>
+                            <option value="capa">Com capa primeiro</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="filtro-linha">
+                    <span class="filtro-rotulo"><i class="fas fa-bookmark"></i> Gênero</span>
+                    <div class="acervo-filtros" id="acervo-generos"></div>
+                </div>
+
+                <div class="filtro-linha">
+                    <span class="filtro-rotulo"><i class="fas fa-layer-group"></i> Prateleira</span>
+                    <div class="acervo-filtros acervo-filtros--fina" id="acervo-filtros"></div>
+                </div>
+            </div>
+
+            <p class="reveal acervo-contador" id="acervo-contador"></p>
+            <div class="acervo-limpar-linha">
+                <button type="button" class="btn btn--ghost btn--mini" id="acervo-limpar" hidden><i class="fas fa-rotate-left"></i> Limpar filtros</button>
+            </div>
+            <div class="acervo-grade reveal" id="acervo-grade"></div>
+            <div style="text-align:center;margin-top:40px;">
+                <button class="btn btn--accent" id="acervo-mais" type="button" hidden>Ver mais livros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAIXA: DE ONDE VEM O ARQUIVO ===== -->
+    <div class="ponto-cultura">
+        <span class="selo-tag">Como funciona</span><br>
+        <strong>A obra é de todo mundo, o arquivo é do portal público.</strong>
+        <p>Todos os títulos já entraram em domínio público. Os arquivos ficam no portal Domínio Público, do
+        Ministério da Educação, e a gente faz a curadoria, confere a ficha e organiza a estante. Clicou, abriu, leu.
+        Sem login, sem cobrança e sem propaganda no meio.</p>
+    </div>
+
+    <!-- ===== NOSSAS PRODUÇÕES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Feito por nós</span>
+                <h2 class="section-title">Nossas produções</h2>
+                <p class="section-sub">Publicações que saíram das nossas mãos e também estão liberadas para leitura.</p>
+            </div>
+            <div class="grid grid--2">
+                <article class="producao reveal">
+                    <img src="img/acervo/ebook-economia-criativa.jpg" alt="Capa do e-book Desafios à Economia Criativa da Cultura, organizado por Jorge Luiz Barbosa">
+                    <div>
+                        <span class="eyebrow">E-book · 2025</span>
+                        <h3>Desafios à Economia Criativa da Cultura</h3>
+                        <p>Publicação organizada por Jorge Luiz Barbosa, com apoio da FAPERJ, que reúne os debates do setor
+                        no estado do Rio. O presidente do Instituto São Paio deu entrevista sobre sustentabilidade e repasse
+                        de recursos em São Gonçalo para compor o texto.</p>
+                        <a class="btn btn--primary" href="https://bit.ly/458bERw" target="_blank" rel="noopener">Ler o e-book</a>
+                    </div>
+                </article>
+                <article class="producao reveal">
+                    <img src="img/acervo/ebook-deixa-eu-brincar.jpg" alt="Capa do e-book Deixa eu brincar de ser feliz, de Monique Bezerra da Silva">
+                    <div>
+                        <span class="eyebrow">E-book</span>
+                        <h3>Deixa eu Brincar de Ser Feliz</h3>
+                        <p>Uma homenagem à equipe Bruno Magia, escrita por Monique Bezerra da Silva, com apresentação da
+                        Prefeitura da Cidade do Rio de Janeiro e da Secretaria Municipal de Cultura.</p>
+                        <a class="btn btn--primary" href="https://drive.google.com/file/d/1ni_nSb9o7B3if4vmaqcCxRSrOyg22CZX/view" target="_blank" rel="noopener">Ler o e-book</a>
+                    </div>
+                </article>
+            </div>
+            <p class="reveal" style="text-align:center;max-width:760px;margin:36px auto 0;color:var(--texto-suave);">
+            Tem um livro parado na estante? A campanha <a href="biblioteca.html" style="color:var(--azul);font-weight:700;">Liberte um Livro</a>
+            recebe doações o ano inteiro e coloca o exemplar na mão de quem vai ler.</p>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section doe-band">
+        <div class="container">
+            <div class="section-head" style="margin-bottom:0;">
+                <h2 class="section-title">Leitura de graça custa alguma coisa</h2>
+                <p style="margin-top:14px;">Manter o acervo vivo, a curadoria em dia e a Casa Amarela de portas abertas
+                depende de quem acredita junto.</p>
+                <a class="btn btn--light" href="doe.html">Quero apoiar</a>
+                <a class="btn btn--outline-light" href="biblioteca.html" style="margin-left:8px;">Conhecer a biblioteca</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RODAPE (igual em todas as paginas) ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <p>Organização do Terceiro Setor e Ponto de Cultura, transformando vidas por meio do esporte, da cultura, da educação e da arte em São Gonçalo e no Leste Fluminense.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" aria-label="Instagram do Instituto"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/espacoculturalpanorama/" target="_blank" rel="noopener" aria-label="Instagram do Espaço Panorama"><i class="fas fa-masks-theater"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Odete São Paio, 151 — Colubandê, São Gonçalo - RJ</li>
+                    <li><i class="fas fa-envelope"></i> contato@institutosaopaio.org</li>
+                    <li><i class="fas fa-phone"></i> (21) 9 9852-9573</li>
+                    <li><i class="fas fa-id-card"></i> CNPJ 17.341.451/0001-95</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="iniciativas.html">Iniciativas</a></li>
+                    <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
+                    <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="acervo.html">Acervo Digital</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="doe.html">Faça uma doação</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span class="ano-atual">2026</span> Associação Instituto São Paio — Ponto de Cultura · CNPJ 17.341.451/0001-95 · São Gonçalo, RJ.
+        </div>
+    </footer>
+
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+    <script src="acervo.js"></script>
+</body>
+</html>

@@ -110,21 +110,23 @@ document.addEventListener('DOMContentLoaded', function () {
             itens: [
                 'Cursos gratuitos de audiovisual (Lei Paulo Gustavo)',
                 'Oficinas de produção de eventos e projetos culturais',
-                'Campanha "Liberte um Livro" para a Biblioteca A Casa Amarela',
-                'Consultoria e pesquisa (parceria UNESCO)',
-                'Bolsas de estudo para moradores de áreas de risco'
+                'Cursos gratuitos de piano, violão, canto, teatro e dança de salão',
+                'Biblioteca A Casa Amarela, com empréstimo gratuito e clube de leitura',
+                'Campanha "Liberte um Livro" e o projeto Livro de Rua',
+                'Consultoria e pesquisa (parceria UNESCO)'
             ]
         },
         cultura: {
             tag: 'Iniciativa',
             titulo: 'Cultura e Arte',
-            desc: 'Como Ponto de Cultura, levamos teatro, cinema, podcast e dança ' +
-                  'para a cidade — democratizando o acesso à arte.',
+            desc: 'Como Ponto de Cultura, levamos teatro, cinema, leitura, música e dança ' +
+                  'para a cidade, sempre de forma gratuita para a comunidade.',
             itens: [
                 'Teatro e espetáculos no Espaço Cultural Panorama',
                 'Cineclube Panorama e sessões de cinema gratuitas',
                 'Estúdio de podcast e videocast "A Resenha do IES"',
-                'Oficinas de teatro e dança de salão',
+                'Cursos gratuitos de teatro e dança de salão',
+                'Biblioteca A Casa Amarela e o Encontro de Mães Empreendedoras',
                 'Editais de ocupação com isenção de taxas'
             ]
         }
@@ -377,15 +379,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var figure = document.createElement('div');
             figure.className = 'prog-foto';
-            if (e.foto) {
+            /* Nenhum card fica sem imagem: sem cartaz cadastrado, entra
+               uma foto do próprio palco do Panorama. */
+            var FOTO_PADRAO = 'img/programacao/palco-panorama.jpg';
+            if (true) {
                 var img = document.createElement('img');
-                img.src = e.foto;
-                img.alt = 'Cartaz de ' + (e.titulo || 'espetáculo');
+                img.src = e.foto || FOTO_PADRAO;
+                img.alt = e.foto ? ('Cartaz de ' + (e.titulo || 'espetáculo'))
+                                 : 'Palco do Espaço Cultural Panorama';
                 img.loading = 'lazy';
                 fallbackImg(img);
                 figure.appendChild(img);
-            } else {
-                figure.classList.add('img-quebrada');
             }
             if (i) {
                 var badge = document.createElement('div');
@@ -434,7 +438,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 btn.href = e.linkIngresso;
                 btn.target = '_blank';
                 btn.rel = 'noopener';
-                btn.innerHTML = '<i class="fas fa-ticket-simple"></i> Comprar ingresso';
+                /* Espetáculo ainda sem data marcada leva para o aviso,
+                   não para uma compra que ainda não existe. */
+                var ehZap = /wa\.me|whatsapp/i.test(e.linkIngresso);
+                btn.innerHTML = !i
+                    ? '<i class="fab fa-whatsapp"></i> Quero ser avisado'
+                    : (ehZap
+                        ? '<i class="fab fa-whatsapp"></i> Ingressos pelo WhatsApp'
+                        : '<i class="fas fa-ticket-simple"></i> Comprar ingresso');
                 foot.appendChild(btn);
             } else if (e.preco) {
                 var aviso = document.createElement('span');
@@ -573,6 +584,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 el.style.display = '';
             });
         }
+    }
+
+    /* ---------- GALERIAS ESTÁTICAS + LIGHTBOX ----------
+       Qualquer .gal-item escrito direto no HTML (biblioteca.html,
+       iniciativas.html, impacto.html) ganha zoom ao ser clicado.
+       Basta o botão ter data-foto e, opcionalmente, data-legenda. */
+    var itensGaleria = document.querySelectorAll('.gal-item[data-foto]');
+    if (itensGaleria.length) {
+        var lbEstatico = document.createElement('div');
+        lbEstatico.className = 'lightbox';
+        lbEstatico.innerHTML = '<button class="lightbox-fechar" aria-label="Fechar">&times;</button><figure><img alt=""><figcaption></figcaption></figure>';
+        document.body.appendChild(lbEstatico);
+
+        function abrirZoom(foto, legenda) {
+            lbEstatico.querySelector('img').src = foto;
+            lbEstatico.querySelector('img').alt = legenda || '';
+            lbEstatico.querySelector('figcaption').textContent = legenda || '';
+            lbEstatico.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function fecharZoom() {
+            lbEstatico.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        itensGaleria.forEach(function (item) {
+            var img = item.querySelector('img');
+            if (img) fallbackImg(img);
+            item.addEventListener('click', function () {
+                abrirZoom(item.getAttribute('data-foto'), item.getAttribute('data-legenda') || '');
+            });
+        });
+        lbEstatico.addEventListener('click', function (e) {
+            if (e.target === lbEstatico || e.target.classList.contains('lightbox-fechar')) fecharZoom();
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharZoom(); });
     }
 
     /* ---------- ANO ATUAL no rodapé ---------- */
