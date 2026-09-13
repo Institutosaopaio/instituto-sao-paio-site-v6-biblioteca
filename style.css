@@ -1244,9 +1244,25 @@ html[data-tema="escuro"] .acervo-ordem select { background: var(--fundo); }
 }
 
 /* Mostruário de capas na página da biblioteca: fileira pequena, nunca gigante */
-.capas-mostra { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; max-width: 400px; margin-left: auto; }
-.capas-mostra .capa { padding: 14px 8px 20px 12px; }
-@media (max-width: 900px) { .capas-mostra { margin: 0 auto; max-width: 340px; } }
+/* Prateleira de capas da chamada do Acervo Digital.
+   Os livros ficam lado a lado, pequenos, na proporção certa,
+   como uma estante vista de frente. */
+.capas-mostra {
+    display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
+    gap: 10px; align-items: end; margin-left: auto; max-width: 460px;
+}
+.capas-mostra .capa {
+    padding: 0; border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(20,40,80,.22);
+}
+.capas-mostra .capa::after { width: 4px; }
+.capas-mostra .capa:hover { transform: translateY(-5px); }
+@media (max-width: 900px) {
+    .capas-mostra { margin: 0 auto; max-width: 420px; }
+}
+@media (max-width: 520px) {
+    .capas-mostra { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; max-width: 300px; }
+}
 
 /* Reserva do QR Code, para a página de doação não exibir imagem quebrada */
 .qr-espera {
