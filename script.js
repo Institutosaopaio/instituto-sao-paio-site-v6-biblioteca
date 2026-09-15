@@ -487,53 +487,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ---------- GALERIA (panorama.html) + lightbox ---------- */
+    /* ---------- GALERIA (panorama.html) ----------
+       Usa o mesmo lightbox das demais páginas, declarado mais abaixo,
+       então a plateia navega entre as fotos com as setas. */
     var galeria = document.getElementById('galeria-fotos');
     if (galeria) {
-        var fotos = D.galeria || [];
-        if (!fotos.length) {
+        var fotosGaleria = (D.galeria || []).map(function (f, idx) {
+            return { foto: f.foto, legenda: f.legenda || 'Foto ' + (idx + 1) + ' do Espaço Cultural Panorama' };
+        });
+        if (!fotosGaleria.length) {
             galeria.innerHTML = '<div class="photo-placeholder"><i class="fas fa-camera"></i><span>Fotos em breve</span></div>';
         }
-        fotos.forEach(function (f, idx) {
+        fotosGaleria.forEach(function (f, idx) {
             var item = document.createElement('button');
             item.type = 'button';
             item.className = 'gal-item';
-            item.setAttribute('aria-label', 'Ampliar foto: ' + (f.legenda || 'foto ' + (idx + 1)));
+            item.setAttribute('aria-label', 'Ampliar foto: ' + f.legenda);
             var img = document.createElement('img');
             img.src = f.foto;
-            img.alt = f.legenda || 'Foto do Espaço Cultural Panorama';
+            img.alt = f.legenda;
             img.loading = 'lazy';
             fallbackImg(img);
             item.appendChild(img);
-            if (f.legenda) {
-                var leg = document.createElement('span');
-                leg.className = 'gal-legenda';
-                leg.textContent = f.legenda;
-                item.appendChild(leg);
-            }
-            item.addEventListener('click', function () { abrirLightbox(f); });
+            var leg = document.createElement('span');
+            leg.className = 'gal-legenda';
+            leg.textContent = f.legenda;
+            item.appendChild(leg);
+            item.addEventListener('click', function () { lbAbrir(fotosGaleria, idx); });
             galeria.appendChild(item);
         });
-
-        var lb = document.createElement('div');
-        lb.className = 'lightbox';
-        lb.innerHTML = '<button class="lightbox-fechar" aria-label="Fechar">&times;</button><figure><img alt=""><figcaption></figcaption></figure>';
-        document.body.appendChild(lb);
-        function abrirLightbox(f) {
-            lb.querySelector('img').src = f.foto;
-            lb.querySelector('img').alt = f.legenda || '';
-            lb.querySelector('figcaption').textContent = f.legenda || '';
-            lb.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function fecharLightbox() {
-            lb.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        lb.addEventListener('click', function (e) {
-            if (e.target === lb || e.target.classList.contains('lightbox-fechar')) fecharLightbox();
-        });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharLightbox(); });
     }
 
     /* ---------- APOIADORES (index.html) ---------- */
@@ -586,41 +568,216 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /* ---------- GALERIAS ESTÁTICAS + LIGHTBOX ----------
-       Qualquer .gal-item escrito direto no HTML (biblioteca.html,
-       iniciativas.html, impacto.html) ganha zoom ao ser clicado.
-       Basta o botão ter data-foto e, opcionalmente, data-legenda. */
-    var itensGaleria = document.querySelectorAll('.gal-item[data-foto]');
-    if (itensGaleria.length) {
-        var lbEstatico = document.createElement('div');
-        lbEstatico.className = 'lightbox';
-        lbEstatico.innerHTML = '<button class="lightbox-fechar" aria-label="Fechar">&times;</button><figure><img alt=""><figcaption></figcaption></figure>';
-        document.body.appendChild(lbEstatico);
+    /* ---------- GALERIAS, ÁLBUNS E LIGHTBOX ----------
+       Dois casos convivem aqui.
+       1. .gal-item[data-foto] escrito direto no HTML, uma foto avulsa.
+       2. .album, um card de ação com várias fotos dentro. As fotos
+          passam sozinhas a cada 8 segundos, aceitam seta e pontinho,
+          e ao clicar abrem o lightbox já na foto que estava à vista,
+          navegando só entre as fotos daquela ação. */
+    var TEMPO_ALBUM = 8000;
+    var semMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function abrirZoom(foto, legenda) {
-            lbEstatico.querySelector('img').src = foto;
-            lbEstatico.querySelector('img').alt = legenda || '';
-            lbEstatico.querySelector('figcaption').textContent = legenda || '';
-            lbEstatico.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function fecharZoom() {
-            lbEstatico.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+    var lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<button class="lightbox-fechar" aria-label="Fechar">&times;</button>' +
+                   '<button class="lightbox-seta lightbox-seta--ant" aria-label="Foto anterior">&#8249;</button>' +
+                   '<figure><img alt=""><figcaption></figcaption></figure>' +
+                   '<button class="lightbox-seta lightbox-seta--prox" aria-label="Próxima foto">&#8250;</button>' +
+                   '<span class="lightbox-conta"></span>';
+    var lbImg = lb.querySelector('img');
+    var lbCap = lb.querySelector('figcaption');
+    var lbAnt = lb.querySelector('.lightbox-seta--ant');
+    var lbProx = lb.querySelector('.lightbox-seta--prox');
+    var lbConta = lb.querySelector('.lightbox-conta');
+    var lbFotos = [];
+    var lbIndice = 0;
+    var lbAberto = false;
+    var lbColocado = false;
 
-        itensGaleria.forEach(function (item) {
-            var img = item.querySelector('img');
-            if (img) fallbackImg(img);
-            item.addEventListener('click', function () {
-                abrirZoom(item.getAttribute('data-foto'), item.getAttribute('data-legenda') || '');
-            });
-        });
-        lbEstatico.addEventListener('click', function (e) {
-            if (e.target === lbEstatico || e.target.classList.contains('lightbox-fechar')) fecharZoom();
-        });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharZoom(); });
+    function lbPinta() {
+        var f = lbFotos[lbIndice];
+        if (!f) return;
+        lbImg.src = f.foto;
+        lbImg.alt = f.legenda || '';
+        lbCap.textContent = f.legenda || '';
+        var varias = lbFotos.length > 1;
+        lbAnt.hidden = !varias;
+        lbProx.hidden = !varias;
+        lbConta.textContent = varias ? (lbIndice + 1) + ' de ' + lbFotos.length : '';
     }
+    function lbAbrir(fotos, indice) {
+        if (!lbColocado) { document.body.appendChild(lb); lbColocado = true; }
+        lbFotos = fotos;
+        lbIndice = indice || 0;
+        lbPinta();
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lbAberto = true;
+    }
+    function lbFechar() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbAberto = false;
+    }
+    function lbAndar(passo) {
+        if (!lbFotos.length) return;
+        lbIndice = (lbIndice + passo + lbFotos.length) % lbFotos.length;
+        lbPinta();
+    }
+    lbAnt.addEventListener('click', function (e) { e.stopPropagation(); lbAndar(-1); });
+    lbProx.addEventListener('click', function (e) { e.stopPropagation(); lbAndar(1); });
+    lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('lightbox-fechar')) lbFechar();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (!lbAberto) return;
+        if (e.key === 'Escape') lbFechar();
+        if (e.key === 'ArrowLeft') lbAndar(-1);
+        if (e.key === 'ArrowRight') lbAndar(1);
+    });
+
+    /* fotos avulsas */
+    document.querySelectorAll('.gal-item[data-foto]').forEach(function (item) {
+        var img = item.querySelector('img');
+        if (img) fallbackImg(img);
+        item.addEventListener('click', function () {
+            lbAbrir([{ foto: item.getAttribute('data-foto'), legenda: item.getAttribute('data-legenda') || '' }], 0);
+        });
+    });
+
+    /* álbuns por ação */
+    document.querySelectorAll('.album').forEach(function (album) {
+        var slides = Array.prototype.slice.call(album.querySelectorAll('.album-slide'));
+        if (!slides.length) return;
+
+        var trilha = album.querySelector('.album-trilha');
+        var palco = album.querySelector('.album-palco');
+        var titulo = album.getAttribute('data-titulo') || '';
+        var atual = 0;
+        var relogio = null;
+        var visivel = false;
+
+        var fotos = slides.map(function (fig) {
+            var im = fig.querySelector('img');
+            if (im) fallbackImg(im);
+            var cap = fig.querySelector('figcaption');
+            return {
+                foto: im ? (im.getAttribute('data-cheia') || im.getAttribute('src')) : '',
+                legenda: (cap ? cap.textContent.trim() : '') || (im ? im.alt : '') || titulo
+            };
+        });
+
+        function mostrar(i) {
+            atual = (i + slides.length) % slides.length;
+            slides.forEach(function (fig, k) { fig.classList.toggle('is-ativa', k === atual); });
+            if (pontos) {
+                pontos.forEach(function (p, k) {
+                    p.classList.toggle('is-ativa', k === atual);
+                    p.setAttribute('aria-selected', k === atual ? 'true' : 'false');
+                });
+            }
+            if (contador) contador.textContent = (atual + 1) + ' / ' + slides.length;
+        }
+        function andar(passo) { mostrar(atual + passo); }
+        function parar() { if (relogio) { clearInterval(relogio); relogio = null; } }
+        function tocar() {
+            parar();
+            if (semMovimento || slides.length < 2 || !visivel || lbAberto) return;
+            relogio = setInterval(function () {
+                if (document.hidden || lbAberto) return;
+                andar(1);
+            }, TEMPO_ALBUM);
+        }
+
+        var pontos = null;
+        var contador = null;
+        if (slides.length === 1) album.classList.add('album--unica');
+
+        if (slides.length > 1) {
+            var setaAnt = document.createElement('button');
+            setaAnt.type = 'button';
+            setaAnt.className = 'album-seta album-seta--ant';
+            setaAnt.setAttribute('aria-label', 'Foto anterior' + (titulo ? ' de ' + titulo : ''));
+            setaAnt.innerHTML = '&#8249;';
+
+            var setaProx = document.createElement('button');
+            setaProx.type = 'button';
+            setaProx.className = 'album-seta album-seta--prox';
+            setaProx.setAttribute('aria-label', 'Próxima foto' + (titulo ? ' de ' + titulo : ''));
+            setaProx.innerHTML = '&#8250;';
+
+            contador = document.createElement('span');
+            contador.className = 'album-contador';
+
+            palco.appendChild(setaAnt);
+            palco.appendChild(setaProx);
+            palco.appendChild(contador);
+
+            setaAnt.addEventListener('click', function (e) { e.stopPropagation(); andar(-1); tocar(); });
+            setaProx.addEventListener('click', function (e) { e.stopPropagation(); andar(1); tocar(); });
+
+            var barra = document.createElement('div');
+            barra.className = 'album-pontos';
+            barra.setAttribute('role', 'tablist');
+            barra.setAttribute('aria-label', 'Fotos' + (titulo ? ' de ' + titulo : ''));
+            pontos = slides.map(function (fig, k) {
+                var p = document.createElement('button');
+                p.type = 'button';
+                p.className = 'album-ponto';
+                p.setAttribute('role', 'tab');
+                p.setAttribute('aria-label', 'Foto ' + (k + 1) + ' de ' + slides.length);
+                p.addEventListener('click', function (e) { e.stopPropagation(); mostrar(k); tocar(); });
+                barra.appendChild(p);
+                return p;
+            });
+            palco.insertAdjacentElement('afterend', barra);
+        }
+
+        if (trilha) {
+            trilha.setAttribute('role', 'button');
+            trilha.setAttribute('tabindex', '0');
+            trilha.setAttribute('aria-label', 'Abrir a galeria' + (titulo ? ' de ' + titulo : ''));
+            trilha.addEventListener('click', function () { parar(); lbAbrir(fotos, atual); });
+            trilha.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); parar(); lbAbrir(fotos, atual); }
+                if (e.key === 'ArrowLeft') { e.preventDefault(); andar(-1); tocar(); }
+                if (e.key === 'ArrowRight') { e.preventDefault(); andar(1); tocar(); }
+            });
+        }
+
+        album.addEventListener('mouseenter', parar);
+        album.addEventListener('mouseleave', tocar);
+        album.addEventListener('focusin', parar);
+        album.addEventListener('focusout', function (e) {
+            if (!album.contains(e.relatedTarget)) tocar();
+        });
+
+        mostrar(0);
+
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entradas) {
+                entradas.forEach(function (en) {
+                    visivel = en.isIntersecting;
+                    if (visivel) { tocar(); } else { parar(); }
+                });
+            }, { threshold: 0.25 }).observe(album);
+        } else {
+            visivel = true;
+            tocar();
+        }
+
+        album.addEventListener('album:retomar', tocar);
+    });
+
+    /* quando o lightbox fecha, os álbuns visíveis voltam a girar */
+    var voltarATocar = function () {
+        document.querySelectorAll('.album').forEach(function (a) {
+            a.dispatchEvent(new Event('album:retomar'));
+        });
+    };
+    lb.addEventListener('transitionend', function () { if (!lbAberto) voltarATocar(); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) voltarATocar(); });
 
     /* ---------- ANO ATUAL no rodapé ---------- */
     document.querySelectorAll('.ano-atual').forEach(function (el) {

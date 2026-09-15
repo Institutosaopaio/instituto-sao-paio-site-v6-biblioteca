@@ -7,7 +7,7 @@ window.DADOS_SITE = {
   "ocultarPassados": true,
   "biblioteca": {
     "selo": "Inaugurada em 6 de agosto de 2026",
-    "destaque": "A primeira biblioteca comunitária de São Gonçalo já está de portas abertas",
+    "destaque": "O Colubandê agora tem biblioteca, e ela está de portas abertas",
     "texto": "A Biblioteca A Casa Amarela Oton São Paio funciona dentro do Espaço Cultural Panorama, no Colubandê, com acervo para todas as idades, empréstimo gratuito e programação cultural. Tudo sem custo nenhum para quem chega.",
     "inauguracao": "A Casa Amarela está aberta no Espaço Cultural Panorama, na Rua Odete São Paio, 151, Colubandê, São Gonçalo/RJ. Terças, quintas e sextas, das 9h às 17h.",
     "horario": "Terças, quintas e sextas, das 9h às 17h",

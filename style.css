@@ -1274,3 +1274,116 @@ html[data-tema="escuro"] .acervo-ordem select { background: var(--fundo); }
 }
 .qr-espera i { font-size: 2rem; color: var(--azul); opacity: .5; }
 .qr-espera[hidden] { display: none; }
+
+/* ============================================================
+   ÁLBUNS POR AÇÃO
+   Cada ação vira um card com as suas fotos dentro. As fotos
+   passam sozinhas a cada 8 segundos, têm setas e pontinhos, e
+   ao clicar o lightbox abre a galeria daquela ação.
+   ============================================================ */
+.albuns {
+    display: grid; gap: 22px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.album {
+    background: #fff; border: 1px solid var(--borda); border-radius: 16px;
+    overflow: hidden; display: flex; flex-direction: column;
+    box-shadow: 0 4px 16px rgba(20,40,80,.06);
+    transition: transform .18s ease, box-shadow .2s ease;
+}
+.album:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(26,81,161,.15); }
+
+.album-palco { position: relative; aspect-ratio: 4/3; background: var(--fundo-alt); overflow: hidden; }
+.album-trilha { position: absolute; inset: 0; cursor: zoom-in; }
+.album-slide {
+    position: absolute; inset: 0; margin: 0;
+    opacity: 0; visibility: hidden; transition: opacity .55s ease;
+}
+.album-slide.is-ativa { opacity: 1; visibility: visible; }
+.album-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.album-slide figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(8,16,34,.92) 0%, rgba(8,16,34,.74) 45%, rgba(8,16,34,0) 100%);
+    color: #fff; font-family: var(--corpo); font-size: 12.5px; font-weight: 600;
+    padding: 40px 12px 11px; text-align: left;
+    text-shadow: 0 1px 3px rgba(0,0,0,.55);
+}
+.album-slide.img-quebrada img { opacity: 0; }
+.album-slide.img-quebrada::before {
+    content: "\f030"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; color: var(--azul); opacity: .35;
+}
+
+.album-seta {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: rgba(255,255,255,.9); color: var(--azul);
+    font-size: 1.15rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 10px rgba(10,20,40,.28);
+    opacity: 0; transition: opacity .2s ease, background .2s ease;
+    z-index: 3;
+}
+.album:hover .album-seta, .album:focus-within .album-seta { opacity: 1; }
+.album-seta:hover { background: #fff; }
+.album-seta:focus-visible { opacity: 1; outline: 2px solid var(--amarelo); outline-offset: 2px; }
+.album-seta--ant { left: 10px; }
+.album-seta--prox { right: 10px; }
+
+.album-contador {
+    position: absolute; top: 10px; right: 12px; z-index: 3;
+    background: rgba(8,16,34,.66); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: .4px;
+    padding: 3px 9px; border-radius: 999px;
+}
+
+.album-pontos { display: flex; gap: 6px; justify-content: center; padding: 12px 12px 0; }
+.album-ponto {
+    width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0;
+    background: #C9D2E0; cursor: pointer; transition: background .2s ease, width .2s ease;
+}
+.album-ponto.is-ativa { background: var(--azul); width: 18px; border-radius: 999px; }
+.album-ponto:focus-visible { outline: 2px solid var(--amarelo); outline-offset: 2px; }
+
+.album-texto { padding: 12px 18px 18px; }
+.album-titulo {
+    font-family: var(--display); font-size: 1.16rem; line-height: 1.2;
+    color: var(--azul); margin: 0 0 4px;
+}
+.album-linha { font-size: .84rem; color: var(--texto-suave); line-height: 1.5; margin: 0; }
+
+/* lightbox com navegação */
+.lightbox figure { position: relative; }
+.lightbox-seta {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    width: 52px; height: 52px; border-radius: 50%; border: none;
+    background: rgba(255,255,255,.14); color: #fff; font-size: 1.7rem; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .2s ease;
+}
+.lightbox-seta:hover { background: rgba(255,255,255,.3); }
+.lightbox-seta:focus-visible { outline: 2px solid var(--amarelo); outline-offset: 3px; }
+.lightbox-seta--ant { left: 18px; }
+.lightbox-seta--prox { right: 18px; }
+.lightbox-seta[hidden] { display: none; }
+.lightbox-conta {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: #9FB6D4; font-size: 12px; font-weight: 700; letter-spacing: 1px;
+}
+
+@media (max-width: 640px) {
+    .albuns { grid-template-columns: 1fr; gap: 18px; }
+    .album-seta { opacity: 1; width: 32px; height: 32px; }
+    .lightbox-seta { width: 42px; height: 42px; font-size: 1.4rem; }
+    .lightbox-seta--ant { left: 6px; }
+    .lightbox-seta--prox { right: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .album, .album-slide, .album-seta, .lightbox-seta { transition: none; }
+}
+
+/* um álbum sozinho ao lado de um texto ocupa a coluna inteira */
+.albuns--solo { grid-template-columns: minmax(0, 1fr); align-content: start; }
+/* álbum de uma foto só não tem barra de pontinhos: compensa o espaço */
+.album--unica .album-texto { padding-top: 24px; }

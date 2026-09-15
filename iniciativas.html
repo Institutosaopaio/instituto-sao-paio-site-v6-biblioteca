@@ -14,7 +14,7 @@
         (function(){try{var t=localStorage.getItem('isp-tema')||'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
     </script>
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <link rel="stylesheet" href="style.css?v=20260913c">
+    <link rel="stylesheet" href="style.css?v=20260915a">
 </head>
 <body>
     <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
@@ -144,33 +144,45 @@
             <div class="section-head reveal" style="margin-top:56px;">
                 <span class="eyebrow">Sala de aula</span>
                 <h2 class="section-title">As turmas por dentro</h2>
-                <p class="section-sub">Clique em qualquer foto para ampliar.</p>
+                <p class="section-sub">Cada turma tem o seu álbum. As fotos passam sozinhas, e ao clicar abre a galeria daquela turma.</p>
             </div>
-            <div class="gallery reveal">
-                <button type="button" class="gal-item" data-foto="img/cursos/piano-1.jpg" data-legenda="Aula de piano no Espaço Cultural Panorama" aria-label="Ampliar foto da aula de piano">
-                    <img src="img/cursos/piano-1.jpg" alt="Professor orientando um aluno ao piano no Espaço Cultural Panorama" loading="lazy">
-                    <span class="gal-legenda">Aula de piano no Panorama</span>
-                </button>
-                <button type="button" class="gal-item" data-foto="img/cursos/piano-2.jpg" data-legenda="Professor e aluno no piano, com acompanhamento individual" aria-label="Ampliar foto da aula de piano">
-                    <img src="img/cursos/piano-2.jpg" alt="Aluno tocando piano com o professor acompanhando de perto" loading="lazy">
-                    <span class="gal-legenda">Acompanhamento individual</span>
-                </button>
-                <button type="button" class="gal-item" data-foto="img/cursos/piano-3.jpg" data-legenda="Primeiros acordes na aula de piano" aria-label="Ampliar foto da aula de piano">
-                    <img src="img/cursos/piano-3.jpg" alt="Professor mostrando a posição das mãos no teclado do piano" loading="lazy">
-                    <span class="gal-legenda">Os primeiros acordes</span>
-                </button>
-                <button type="button" class="gal-item" data-foto="img/cursos/danca-de-salao.jpg" data-legenda="Turma de dança de salão ocupando o palco do Panorama" aria-label="Ampliar foto da aula de dança de salão">
-                    <img src="img/cursos/danca-de-salao.jpg" alt="Casais dançando no palco iluminado do Espaço Cultural Panorama" loading="lazy">
-                    <span class="gal-legenda">Dança de salão no palco</span>
-                </button>
-                <button type="button" class="gal-item" data-foto="img/cursos/curso-de-teatro.jpg" data-legenda="Turma de teatro em aula no Espaço Cultural Panorama" aria-label="Ampliar foto da aula de teatro">
-                    <img src="img/cursos/curso-de-teatro.jpg" alt="Alunos da turma de teatro em exercício no palco do Espaço Cultural Panorama" loading="lazy">
-                    <span class="gal-legenda">A turma de teatro em aula</span>
-                </button>
-                <button type="button" class="gal-item" data-foto="img/cursos/curso-de-teatro-2.jpg" data-legenda="Exercício de corpo e movimento na aula de teatro, às quartas" aria-label="Ampliar foto da aula de teatro">
-                    <img src="img/cursos/curso-de-teatro-2.jpg" alt="Crianças e adolescentes em exercício de movimento na aula de teatro" loading="lazy">
-                    <span class="gal-legenda">Corpo e movimento, às quartas</span>
-                </button>
+            <div class="albuns reveal">
+                <article class="album reveal" data-titulo="Piano e teclado">
+                    <div class="album-palco">
+                        <div class="album-trilha">
+                            <figure class="album-slide is-ativa"><img src="img/cursos/piano-1.jpg" alt="Professor orientando um aluno ao piano no Espaço Cultural Panorama"><figcaption>Aula de piano no Panorama</figcaption></figure>
+                            <figure class="album-slide"><img src="img/cursos/piano-2.jpg" alt="Aluno tocando piano com o professor acompanhando de perto" loading="lazy"><figcaption>Acompanhamento individual, aluno por aluno</figcaption></figure>
+                            <figure class="album-slide"><img src="img/cursos/piano-3.jpg" alt="Professor mostrando a posição das mãos no teclado do piano" loading="lazy"><figcaption>Os primeiros acordes</figcaption></figure>
+                        </div>
+                    </div>
+                    <div class="album-texto">
+                        <h3 class="album-titulo">Piano e teclado</h3>
+                        <p class="album-linha">Aula individual, do primeiro acorde à peça inteira.</p>
+                    </div>
+                </article>
+                <article class="album reveal" data-titulo="Curso de Teatro">
+                    <div class="album-palco">
+                        <div class="album-trilha">
+                            <figure class="album-slide is-ativa"><img src="img/cursos/curso-de-teatro.jpg" alt="Alunos da turma de teatro em exercício no palco do Espaço Cultural Panorama"><figcaption>A turma de teatro em aula, no palco de 270 lugares</figcaption></figure>
+                            <figure class="album-slide"><img src="img/cursos/curso-de-teatro-2.jpg" alt="Crianças e adolescentes em exercício de movimento na aula de teatro" loading="lazy"><figcaption>Corpo e movimento, às quartas</figcaption></figure>
+                        </div>
+                    </div>
+                    <div class="album-texto">
+                        <h3 class="album-titulo">Curso de Teatro</h3>
+                        <p class="album-linha">Turma infantil, turma juvenil e a turma Ator e Método, às quartas.</p>
+                    </div>
+                </article>
+                <article class="album reveal" data-titulo="Dança de salão">
+                    <div class="album-palco">
+                        <div class="album-trilha">
+                            <figure class="album-slide is-ativa"><img src="img/cursos/danca-de-salao.jpg" alt="Casais dançando no palco iluminado do Espaço Cultural Panorama"><figcaption>Dança de salão no palco, às segundas à noite</figcaption></figure>
+                        </div>
+                    </div>
+                    <div class="album-texto">
+                        <h3 class="album-titulo">Dança de salão</h3>
+                        <p class="album-linha">Samba, forró, bolero e soltinho, com baile no palco.</p>
+                    </div>
+                </article>
             </div>
             <div class="media-row reveal" style="margin-top:44px;">
                 <figure class="video-card">
@@ -293,6 +305,68 @@
                     <img src="img/feiras/feira-empreendedoras-2.jpg" alt="Produtos artesanais expostos na feira dentro do teatro" loading="lazy">
                     <span class="gal-legenda">Banca montada dentro do teatro</span>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACAO SOCIAL: PARCERIA COM A ABRAZ ===== -->
+    <section class="section" id="acao-social">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Ação social</span>
+                <h2 class="section-title">Informar é cuidar</h2>
+                <p class="section-sub">O Instituto São Paio firmou parceria com a <strong>ABRAz, Associação Brasileira de Alzheimer,
+                Regional Rio de Janeiro</strong>, e trouxe para o Colubandê uma agenda permanente sobre a Doença de Alzheimer. O primeiro
+                encontro aconteceu em setembro de 2026, no palco do Espaço Cultural Panorama.</p>
+            </div>
+
+            <div class="grid grid--3 reveal" style="margin-bottom:40px;">
+                <article class="card" style="text-align:center;border-top:5px solid var(--azul);">
+                    <p style="font-family:var(--display);font-size:3.1rem;line-height:1;color:var(--azul);margin:0 0 4px;">120</p>
+                    <p style="font-weight:700;margin:0;">pessoas no primeiro encontro</p>
+                </article>
+                <article class="card" style="text-align:center;border-top:5px solid var(--vermelho);">
+                    <p style="font-family:var(--display);font-size:3.1rem;line-height:1;color:var(--vermelho);margin:0 0 4px;">1 por mês</p>
+                    <p style="font-weight:700;margin:0;">todo mês, sem inscrição e sem cobrança</p>
+                </article>
+                <article class="card" style="text-align:center;border-top:5px solid var(--amarelo);">
+                    <p style="font-family:var(--display);font-size:3.1rem;line-height:1;color:#C99A00;margin:0 0 4px;">Outubro</p>
+                    <p style="font-weight:700;margin:0;">o próximo encontro é com as famílias</p>
+                </article>
+            </div>
+
+            <div class="media-row reveal">
+                <div>
+                    <span class="eyebrow">O que acontece nesses encontros</span>
+                    <h3 style="color:var(--azul);font-size:1.4rem;margin:6px 0 12px;">Uma conversa sobre uma doença que a família costuma enfrentar sozinha</h3>
+                    <p style="color:var(--texto-suave);margin-bottom:12px;">A ABRAz explica o que é a Doença de Alzheimer, o que muda na
+                    rotina de quem convive com ela e como acolher um familiar que começa a esquecer. Quem chega sai sabendo que existe
+                    uma rede de informação, orientação e apoio, e sabendo onde encontrá-la.</p>
+                    <p style="color:var(--texto-suave);margin-bottom:12px;">A programação é aberta a todo mundo. Vem quem cuida, vem quem
+                    é cuidado, vêm as turmas de teatro, dança e música da casa, vêm os leitores da biblioteca e vem quem só passou na porta
+                    e resolveu entrar. Não tem inscrição, não tem cobrança e não tem porta fechada.</p>
+                    <p style="color:var(--texto-suave);margin-bottom:12px;">Em outubro a roda é com as famílias. Nos meses seguintes a
+                    parceria traz cursos de formação para cuidadores de idosos e a implantação de um espaço fixo de acolhimento.</p>
+                    <p style="color:var(--texto-suave);">Data e horário de cada encontro saem no Instagram
+                    <a href="https://www.instagram.com/institutosaopaio" target="_blank" rel="noopener" style="color:var(--azul);font-weight:700;">@institutosaopaio</a>.</p>
+                </div>
+                <div class="albuns albuns--solo">
+                <article class="album reveal" data-titulo="ABRAz nas Escolas no Panorama">
+                    <div class="album-palco">
+                        <div class="album-trilha">
+                            <figure class="album-slide is-ativa"><img src="img/abraz/abraz-turma-no-palco.jpg" alt="Grupo de jovens no palco do teatro em frente ao painel da ABRAz, ao lado dos banners informativos sobre a Doença de Alzheimer"><figcaption>Jovens no palco, ao fim da roda de conversa sobre a Doença de Alzheimer</figcaption></figure>
+                            <figure class="album-slide"><img src="img/abraz/abraz-plateia-cheia.jpg" alt="Plateia do teatro cheia durante a apresentação da ABRAz no palco" style="object-position:center 42%;" loading="lazy"><figcaption>Teatro cheio: 120 pessoas no primeiro encontro</figcaption></figure>
+                            <figure class="album-slide"><img src="img/abraz/abraz-mediadora-no-painel.jpg" alt="Mediadora da ABRAz falando ao microfone diante do painel da associação" loading="lazy"><figcaption>A ABRAz Regional Rio de Janeiro abre a conversa no palco do Panorama</figcaption></figure>
+                            <figure class="album-slide"><img src="img/abraz/abraz-acolhimento-e-amor.jpg" alt="Apresentação com o slide Acolhimento e Amor projetado no palco" style="object-position:center 40%;" loading="lazy"><figcaption>&quot;Acolhimento e amor&quot;: como a rede de apoio chega a quem cuida</figcaption></figure>
+                            <figure class="album-slide"><img src="img/abraz/abraz-grupo-no-painel.jpg" alt="Participantes reunidos no palco para a foto final, diante do painel da ABRAz" style="object-position:center 32%;" loading="lazy"><figcaption>A foto do fim, com o painel da ABRAz ao fundo</figcaption></figure>
+                        </div>
+                    </div>
+                    <div class="album-texto">
+                        <h3 class="album-titulo">ABRAz nas Escolas no Panorama</h3>
+                        <p class="album-linha">Setembro de 2026. O primeiro encontro da parceria, no palco do Panorama.</p>
+                    </div>
+                </article>
+                </div>
             </div>
         </div>
     </section>
@@ -424,7 +498,7 @@
                     </div>
                 </article>
                 <article class="card proj-card reveal">
-                    <img class="proj-img" src="img/cursos/curso-de-teatro.jpg" alt="Turma de teatro em aula no palco do Espaço Cultural Panorama">
+                    <img class="proj-img" src="img/cursos/curso-de-teatro-3.jpg" alt="Alunos chegando para a aula de teatro no Espaço Cultural Panorama">
                     <div class="proj-body">
                         <span class="ano">Em andamento</span>
                         <h3>Curso de Teatro</h3>
@@ -576,7 +650,7 @@
         </div>
     </footer>
 
-    <script src="dados.js?v=20260913c"></script>
-    <script src="script.js?v=20260913c"></script>
+    <script src="dados.js?v=20260915a"></script>
+    <script src="script.js?v=20260915a"></script>
 </body>
 </html>
