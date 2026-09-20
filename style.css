@@ -1387,3 +1387,48 @@ html[data-tema="escuro"] .acervo-ordem select { background: var(--fundo); }
 .albuns--solo { grid-template-columns: minmax(0, 1fr); align-content: start; }
 /* álbum de uma foto só não tem barra de pontinhos: compensa o espaço */
 .album--unica .album-texto { padding-top: 24px; }
+
+/* ============================================================
+   DESTAQUE DE TV, a reportagem do Globo Comunidade
+   Uma faixa só, escura, para o vídeo ter peso sem competir
+   com o resto da página da biblioteca.
+   ============================================================ */
+.tv-faixa {
+    background: linear-gradient(135deg, #0C1A38 0%, #123066 55%, #0E2350 100%);
+    color: #fff; position: relative; overflow: hidden;
+}
+.tv-faixa::after {
+    content: ""; position: absolute; right: -90px; top: -90px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,198,13,.16) 0%, rgba(255,198,13,0) 70%);
+    pointer-events: none;
+}
+.tv-grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 42px; align-items: center; }
+.tv-player {
+    margin: 0; border-radius: 18px; overflow: hidden; background: #000;
+    box-shadow: 0 22px 54px rgba(4,10,26,.55);
+    border: 3px solid rgba(255,255,255,.1);
+}
+.tv-player video { width: 100%; display: block; background: #000; aspect-ratio: 848 / 392; }
+.tv-selo {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+    color: #fff; font-size: .74rem; font-weight: 800; letter-spacing: 1.2px;
+    text-transform: uppercase; padding: 7px 14px; border-radius: 999px;
+}
+.tv-selo i { color: var(--amarelo); }
+.tv-texto h2 {
+    font-family: var(--display); color: #fff; line-height: 1.08;
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem); margin: 16px 0 14px;
+}
+.tv-texto p { color: #CBD9EE; font-size: .98rem; line-height: 1.65; margin-bottom: 14px; }
+.tv-texto p strong { color: var(--amarelo); }
+.tv-texto .btn { margin-top: 6px; }
+.tv-credito {
+    font-size: .78rem; color: #8FA6C6; margin: 18px 0 0;
+    padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14);
+}
+
+@media (max-width: 900px) {
+    .tv-grade { grid-template-columns: 1fr; gap: 26px; }
+}
