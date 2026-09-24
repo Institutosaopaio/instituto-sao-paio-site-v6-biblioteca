@@ -1432,3 +1432,51 @@ html[data-tema="escuro"] .acervo-ordem select { background: var(--fundo); }
 @media (max-width: 900px) {
     .tv-grade { grid-template-columns: 1fr; gap: 26px; }
 }
+
+/* ---- A matéria escrita do g1, logo abaixo do player ----
+   Segunda batida da MESMA faixa escura: mesma grade (1.35fr / 1fr),
+   separada só por um filete. Não é seção nova, é a leitura que
+   continua depois do vídeo. */
+.tv-materia {
+    margin-top: 44px; padding-top: 34px;
+    border-top: 1px solid rgba(255,255,255,.14);
+    display: grid; grid-template-columns: 1.35fr 1fr; gap: 42px; align-items: start;
+}
+.tv-materia-texto h3 {
+    font-family: var(--display); color: #fff; line-height: 1.1;
+    font-size: clamp(1.45rem, 2.6vw, 2rem); margin: 16px 0 12px;
+}
+.tv-materia-texto p { color: #CBD9EE; font-size: .98rem; line-height: 1.65; margin-bottom: 14px; }
+.tv-materia-texto p strong { color: var(--amarelo); }
+.tv-assinatura {
+    font-size: .76rem; color: #8FA6C6; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+}
+.tv-materia-texto .btn { margin-top: 2px; }
+
+/* O depoimento que saiu na reportagem, em destaque calmo */
+.tv-citacao {
+    position: relative; margin: 0;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.16);
+    border-left: 3px solid var(--amarelo);
+    border-radius: 14px; padding: 30px 26px 22px;
+}
+.tv-citacao::before {
+    content: "\201C"; position: absolute; top: 6px; left: 18px;
+    font-family: var(--display); font-size: 4rem; line-height: .8;
+    color: rgba(255,198,13,.26); pointer-events: none;
+}
+.tv-citacao blockquote {
+    position: relative; margin: 0 0 16px; border: 0; padding: 0;
+    color: #E8F0FB; font-size: 1rem; line-height: 1.6; font-style: italic;
+}
+.tv-citacao figcaption { font-size: .78rem; color: #8FA6C6; line-height: 1.5; }
+.tv-citacao figcaption strong {
+    display: block; color: var(--amarelo);
+    font-size: .84rem; letter-spacing: .4px; text-transform: uppercase; margin-bottom: 2px;
+}
+
+@media (max-width: 900px) {
+    .tv-materia { grid-template-columns: 1fr; gap: 26px; margin-top: 32px; padding-top: 28px; }
+}
