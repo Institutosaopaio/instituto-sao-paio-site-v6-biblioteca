@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Patrocine um projeto cultural do Instituto São Paio: projetos aprovados na Lei Rouanet e na Lei Estadual de Incentivo à Cultura do RJ (ICMS), no Espaço Cultural Panorama, em São Gonçalo.">
+    <title>Instituto São Paio — Patrocine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    /* Tema salvo (igual às outras páginas) + preparo da abertura, antes de a página aparecer */
+    (function () {
+        var raiz = document.documentElement;
+        raiz.classList.add('pat-pagina');
+        try { raiz.setAttribute('data-tema', localStorage.getItem('isp-tema') || 'claro'); } catch (e) { raiz.setAttribute('data-tema', 'claro'); }
+        var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (calmo) return;
+        raiz.classList.add('pat-js');
+        var jaViu = false;
+        try { jaViu = !!sessionStorage.getItem('isp-intro-patrocine'); } catch (e) {}
+        if (!jaViu) {
+            raiz.classList.add('pat-intro-on');
+            window.__patIntroSeguranca = setTimeout(function () { raiz.classList.remove('pat-intro-on'); }, 5000);
+        }
+        setTimeout(function () { raiz.classList.remove('pat-js'); }, 7000);
+    })();
+    </script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" href="style.css?v=20260926a">
+</head>
+<body>
+    <!-- ===== ABERTURA (só na primeira visita da sessão; clique ou tecla pula) ===== -->
+    <div class="pat-intro" aria-hidden="true">
+        <p class="pat-intro__rotulo">Instituto São Paio · Projetos incentivados</p>
+        <div class="pat-intro__centro">
+            <div class="pat-intro__formas">
+                <span class="pat-forma pat-forma--circulo"></span>
+                <span class="pat-forma pat-forma--elipse"></span>
+                <svg class="pat-forma pat-forma--asterisco" viewBox="0 0 100 100"><path d="M50 9v82M9 50h82M21 21l58 58M79 21L21 79" stroke="currentColor" stroke-width="13" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <span class="pat-intro__palavra">Cultura</span>
+        </div>
+        <p class="pat-intro__pular">Clique para pular</p>
+        <p class="pat-intro__contador">000</p>
+        <div class="pat-intro__barra"><span></span></div>
+    </div>
+
+    <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Instituto São Paio">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="sobre.html">Sobre Nós</a>
+            <a class="nav-link" href="iniciativas.html">Iniciativas</a>
+            <a class="nav-link" href="panorama.html">Espaço Panorama</a>
+            <a class="nav-link" href="biblioteca.html">Biblioteca</a>
+            <a class="nav-link" href="acervo.html">Acervo Digital</a>
+            <a class="nav-link" href="impacto.html">Impacto</a>
+            <a class="nav-link active" href="patrocine.html">Patrocine</a>
+            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="btn btn--accent" href="doe.html">DOE</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo" class="pat-main">
+
+        <!-- ===== TOPO ===== -->
+        <section class="pat-hero" id="topo">
+            <div class="pat-hero__midia" aria-hidden="true">
+                <video class="pat-hero__video" autoplay muted loop playsinline preload="auto" poster="video/poster-patrocine-fundo.jpg">
+                    <source src="video/patrocine-fundo.mp4" type="video/mp4">
+                </video>
+                <span class="pat-tinta"></span>
+                <span class="pat-reticula"></span>
+            </div>
+            <span class="pat-motivo pat-motivo--circulo" aria-hidden="true"></span>
+            <span class="pat-motivo pat-motivo--elipse" aria-hidden="true"></span>
+            <svg class="pat-motivo pat-motivo--asterisco" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9v82M9 50h82M21 21l58 58M79 21L21 79" stroke="currentColor" stroke-width="12" stroke-linecap="round" fill="none"/></svg>
+
+            <div class="container pat-hero__conteudo">
+                <p class="pat-hero__eyebrow pat-blur">Projetos incentivados · Captação 2026</p>
+                <h1 class="pat-hero__titulo pat-revela">Patrocine a cultura<br><span>de São Gonçalo</span></h1>
+                <p class="pat-hero__giro pat-blur">
+                    <span class="pat-sr">Seu imposto vira leitura, música, dança, games, turismo, teatro e festival.</span>
+                    <span aria-hidden="true">Seu imposto vira <span class="pat-giro-palavra">leitura</span></span>
+                </p>
+                <p class="pat-hero__texto pat-blur">Oito projetos culturais aprovados em leis de incentivo, federal e estadual, abertos a patrocínio no Espaço Cultural Panorama, no Colubandê.</p>
+                <div class="pat-hero__acoes pat-blur">
+                    <a class="btn btn--accent pat-ring" href="#ato-federal">Ver os projetos</a>
+                    <a class="btn btn--outline-light pat-ring" href="#como-funciona">Como patrocinar</a>
+                </div>
+                <div class="pat-rolar pat-blur" aria-hidden="true"><span>Role</span><i></i></div>
+            </div>
+
+            <div class="container">
+                <div class="pat-numeros">
+                    <div class="pat-blur"><span class="pat-num" data-alvo="1000" data-sufixo="+">1.000+</span><span class="pat-num-rotulo">livros no acervo da biblioteca</span></div>
+                    <div class="pat-blur"><span class="pat-num" data-alvo="270">270</span><span class="pat-num-rotulo">lugares no teatro</span></div>
+                    <div class="pat-blur"><span class="pat-num pat-num--palavra">Estúdio</span><span class="pat-num-rotulo">de podcast</span></div>
+                    <div class="pat-blur"><span class="pat-num pat-num--palavra">Sala</span><span class="pat-num-rotulo">de ensaio</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMO PATROCINAR ===== -->
+        <section class="section" id="como-funciona">
+            <div class="container">
+                <div class="section-head pat-sobe">
+                    <span class="eyebrow">Como patrocinar</span>
+                    <h2 class="section-title">Patrocinar é escolher o destino do imposto</h2>
+                    <p class="section-sub">Nas leis de incentivo, parte do imposto que a sua empresa já pagaria vai direto para um projeto cultural aprovado. São duas esferas, e cada projeto está em uma delas.</p>
+                </div>
+
+                <div class="pat-esferas">
+                    <article class="pat-esfera pat-sobe">
+                        <header>
+                            <span class="pat-tag pat-tag--federal">Esfera federal</span>
+                            <h3>Lei Rouanet</h3>
+                            <p class="pat-esfera__lei">Lei nº 8.313/1991 · abatimento no Imposto de Renda</p>
+                        </header>
+                        <dl>
+                            <div><dt>Quem pode</dt><dd>Empresas tributadas pelo lucro real e pessoas físicas que fazem a declaração completa do Imposto de Renda.</dd></div>
+                            <div><dt>Quanto</dt><dd>Até 4% do imposto devido, para empresas, e até 6%, para pessoas físicas.</dd></div>
+                            <div><dt>Como</dt><dd>O aporte vai para a conta do projeto, vinculada ao PRONAC, e é abatido do Imposto de Renda. Projetos do artigo 18 da lei permitem abater 100% do valor; nos do artigo 26, o abatimento é parcial.</dd></div>
+                        </dl>
+                        <a class="pat-esfera__link" href="#ato-federal">Ver os 4 projetos federais <i class="fas fa-arrow-down"></i></a>
+                    </article>
+
+                    <article class="pat-esfera pat-sobe">
+                        <header>
+                            <span class="pat-tag pat-tag--estadual">Esfera estadual</span>
+                            <h3>ICMS/RJ</h3>
+                            <p class="pat-esfera__lei">Lei estadual nº 8.266/2018 · abatimento no ICMS</p>
+                        </header>
+                        <dl>
+                            <div><dt>Quem pode</dt><dd>Empresas contribuintes de ICMS no Estado do Rio de Janeiro.</dd></div>
+                            <div><dt>Quanto</dt><dd>Até 3% do ICMS a recolher por mês, com abatimento de até 100% do valor patrocinado.</dd></div>
+                            <div><dt>Como</dt><dd>O aporte vai para a conta do projeto e é abatido do ICMS a partir do segundo mês após o depósito.</dd></div>
+                        </dl>
+                        <a class="pat-esfera__link" href="#ato-estadual">Ver os 4 projetos estaduais <i class="fas fa-arrow-down"></i></a>
+                    </article>
+                </div>
+
+                <div class="pat-passos">
+                    <span class="pat-passos__trilha" aria-hidden="true"></span>
+                    <span class="pat-passos__linha" aria-hidden="true"></span>
+                    <ol>
+                        <li><span class="pat-passo-n">1</span><h3>Escolha o projeto</h3><p>Veja abaixo os oito projetos e a lei de cada um.</p></li>
+                        <li><span class="pat-passo-n">2</span><h3>Fale com a gente</h3><p>Enviamos a proposta de patrocínio e os dados da conta do projeto.</p></li>
+                        <li><span class="pat-passo-n">3</span><h3>Faça o aporte</h3><p>O depósito vai direto para a conta do projeto.</p></li>
+                        <li><span class="pat-passo-n">4</span><h3>Abata e acompanhe</h3><p>O valor é abatido do imposto e o Instituto presta contas do projeto ao órgão responsável.</p></li>
+                    </ol>
+                </div>
+
+                <p class="pat-nota"><i class="fas fa-circle-info"></i><span>Resumo das regras gerais: Lei 8.313/1991 e Lei 9.532/1997, na esfera federal, e Lei estadual 8.266/2018, no Rio de Janeiro. As condições de cada patrocínio são confirmadas com a equipe do Instituto e com a contabilidade da sua empresa.</span></p>
+            </div>
+        </section>
+
+        <!-- ===== PROJETOS (o cardápio) ===== -->
+        <section class="section section--alt" id="projetos">
+            <div class="container">
+
+                <!-- ATO I · ESFERA FEDERAL -->
+                <div class="pat-ato" id="ato-federal">
+                    <div class="section-head pat-sobe">
+                        <span class="eyebrow">Ato I · Esfera federal</span>
+                        <h2 class="section-title">Lei Federal de Incentivo à Cultura</h2>
+                        <p class="section-sub">Lei Rouanet. Projetos aprovados pelo Ministério da Cultura, cada um com o seu número PRONAC. O patrocínio é abatido do Imposto de Renda.</p>
+                    </div>
+                    <div class="pat-bento">
+
+                        <article class="pat-card pat-card--7" data-projeto="Biblioteca A Casa Amarela — Colubandê">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/biblioteca/galeria/emprestimo-gratuito.jpg" alt="" style="object-position:center 30%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/biblioteca/galeria/emprestimo-gratuito.jpg" alt="Empréstimo de livro no balcão da biblioteca" style="object-position:center 30%;" loading="lazy">
+                                <span class="pat-card__area">Leitura</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--federal">Lei Rouanet</span><span class="pat-card__codigo">PRONAC 257758</span></div>
+                                <h3>Biblioteca A Casa Amarela — Colubandê</h3>
+                                <p class="pat-card__desc">Acervo físico, virtual e itinerante, com cerca de 1.000 títulos, na biblioteca que já funciona no Espaço Cultural Panorama desde agosto de 2026.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Famílias, crianças neuroatípicas, jovens e adultos de São Gonçalo</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 508.675,00</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--5" data-projeto="Som em Movimento">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/cursos/piano-1.jpg" alt="" style="object-position:center 35%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/cursos/piano-1.jpg" alt="Professor orientando um aluno ao piano no Espaço Cultural Panorama" style="object-position:center 35%;" loading="lazy">
+                                <span class="pat-card__area">Música</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--federal">Lei Rouanet</span><span class="pat-card__codigo">PRONAC 259123</span></div>
+                                <h3>Som em Movimento</h3>
+                                <p class="pat-card__desc">Formação musical e produção fonográfica em São Gonçalo.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Jovens e adultos de São Gonçalo</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 385.456,50</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--5" data-projeto="Panorama Geek">
+                            <div class="pat-card__midia pat-card__midia--clara">
+                                <img class="pat-card__duo" src="img/cineclube/cineclube-plateia.jpg" alt="" loading="lazy">
+                                <img class="pat-card__cor" src="img/cineclube/cineclube-plateia.jpg" alt="Sessão infantil do Cineclube Panorama com o teatro cheio" loading="lazy">
+                                <span class="pat-card__area">Games e cultura pop</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--federal">Lei Rouanet</span><span class="pat-card__codigo">PRONAC 258561</span></div>
+                                <h3>Panorama Geek</h3>
+                                <p class="pat-card__desc">Formação em escrita criativa, game design e cultura pop.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Jovens e adultos de escrita criativa, game design e cultura pop</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 513.793,28</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--7" data-projeto="Engenharia do Entretenimento">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/programacao/palco-panorama.jpg" alt="" loading="lazy">
+                                <img class="pat-card__cor" src="img/programacao/palco-panorama.jpg" alt="Teatro do Espaço Cultural Panorama com palco e plateia montada" loading="lazy">
+                                <span class="pat-card__area">Técnica de palco</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--federal">Lei Rouanet</span><span class="pat-card__codigo">PRONAC 258465</span></div>
+                                <h3>Engenharia do Entretenimento</h3>
+                                <p class="pat-card__desc">Formação técnica para quem trabalha nos bastidores do entretenimento: palco, som, luz e produção.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Profissionais e estudantes de engenharia, artes cênicas e produção cultural</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 722.805,60</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ATO II · ESFERA ESTADUAL -->
+                <div class="pat-ato" id="ato-estadual">
+                    <div class="section-head pat-sobe">
+                        <span class="eyebrow">Ato II · Esfera estadual</span>
+                        <h2 class="section-title">Lei Estadual de Incentivo à Cultura</h2>
+                        <p class="section-sub">ICMS/RJ. Projetos aprovados pelo Governo do Estado do Rio de Janeiro. O patrocínio é abatido do ICMS, para empresas contribuintes no estado.</p>
+                    </div>
+                    <div class="pat-bento">
+
+                        <article class="pat-card pat-card--5" data-projeto="1º Festival de Dança Kátia Farjado">
+                            <div class="pat-card__midia pat-card__midia--clara">
+                                <img class="pat-card__duo" src="img/cursos/danca-de-salao.jpg" alt="" style="object-position:center 30%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/cursos/danca-de-salao.jpg" alt="Casais dançando no palco iluminado do Espaço Cultural Panorama" style="object-position:center 30%;" loading="lazy">
+                                <span class="pat-card__area">Dança</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--estadual">ICMS/RJ</span></div>
+                                <h3>1º Festival de Dança Kátia Farjado</h3>
+                                <p class="pat-card__desc">Festival de dança para grupos, bailarinos e coreógrafos da região.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Grupos de dança, bailarinos e coreógrafos</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 168.530,00</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--7" data-projeto="Cena Criativa: Festival de Inteligências Naturais em São Gonçalo">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/cineclube/criadas-sarau.jpg" alt="" style="object-position:center 42%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/cineclube/criadas-sarau.jpg" alt="Sarau no palco com o cartaz de Criadas ao fundo" style="object-position:center 42%;" loading="lazy">
+                                <span class="pat-card__area">Festival</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--estadual">ICMS/RJ</span></div>
+                                <h3>Cena Criativa: Festival de Inteligências Naturais em São Gonçalo</h3>
+                                <p class="pat-card__desc">Três dias de shows, oficinas, palestras e feira, abertos à cidade.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Moradores, crianças, idosos, turistas, estudantes e pesquisadores</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 425.900,00</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--7" data-projeto="Biblioteca A Casa Amarela — Jardim Catarina">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/biblioteca/galeria/tenda-casa-amarela.jpg" alt="" style="object-position:center 58%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/biblioteca/galeria/tenda-casa-amarela.jpg" alt="Tenda inflável da biblioteca itinerante montada na rua" style="object-position:center 58%;" loading="lazy">
+                                <span class="pat-card__area">Leitura</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--estadual">ICMS/RJ</span><span class="pat-card__codigo">Projeto nº 74539</span></div>
+                                <h3>Biblioteca A Casa Amarela — Jardim Catarina</h3>
+                                <p class="pat-card__desc">O conceito da Casa Amarela, com acervo físico, virtual e a tenda itinerante inflável, levado ao Jardim Catarina.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Famílias, crianças neuroatípicas, jovens e adultos do Jardim Catarina</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 967.898,00</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pat-card pat-card--5" data-projeto="Guia Turístico-Cultural de São Gonçalo">
+                            <div class="pat-card__midia">
+                                <img class="pat-card__duo" src="img/biblioteca/fachada-panorama.jpg" alt="" style="object-position:center 25%;" loading="lazy">
+                                <img class="pat-card__cor" src="img/biblioteca/fachada-panorama.jpg" alt="Fachada colorida do galpão do Espaço Cultural Panorama, com mural de flores" style="object-position:center 25%;" loading="lazy">
+                                <span class="pat-card__area">Turismo e memória</span>
+                            </div>
+                            <div class="pat-card__corpo">
+                                <div class="pat-card__topo"><span class="pat-tag pat-tag--estadual">ICMS/RJ</span><span class="pat-card__codigo">Projeto nº 66195</span></div>
+                                <h3>Guia Turístico-Cultural de São Gonçalo</h3>
+                                <p class="pat-card__desc">Mapeamento e publicação turístico-cultural da cidade.</p>
+                                <p class="pat-card__publico"><i class="fas fa-users"></i><span>Moradores, turistas, estudantes, pesquisadores e poder público</span></p>
+                                <div class="pat-card__pe">
+                                    <div><span class="pat-card__rotulo">Valor do projeto</span><strong class="pat-card__valor">R$ 423.155,56</strong></div>
+                                    <a class="btn btn--primary btn--mini pat-ring pat-quero" href="#contato">Quero patrocinar</a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <p class="pat-nota"><i class="fas fa-circle-info"></i><span>As fotos mostram atividades que o Instituto já realiza no Espaço Cultural Panorama e ilustram a área de cada projeto. O saldo disponível para patrocínio em cada projeto é confirmado na proposta.</span></p>
+            </div>
+        </section>
+
+        <!-- ===== EM CENA (fotos abrem no lightbox do site) ===== -->
+        <section class="pat-cena" id="em-cena" aria-labelledby="pat-cena-titulo">
+            <div class="pat-cena__centro">
+                <div class="pat-cena__texto">
+                    <div class="section-head">
+                        <span class="eyebrow">Em cena</span>
+                        <h2 class="section-title" id="pat-cena-titulo">Cultura que já acontece no Colubandê</h2>
+                        <p class="section-sub">Teatro, cineclube, cursos, feiras e rodas de conversa acontecem no Espaço Cultural Panorama, no Colubandê. Toque nas fotos para ampliar.</p>
+                    </div>
+                    <a class="btn btn--ghost pat-ring" href="panorama.html">Conhecer o Espaço Panorama</a>
+                </div>
+            </div>
+            <div class="pat-cena__colunas">
+                <div class="pat-cena__col pat-cena__col--a">
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/abraz/abraz-plateia-cheia.jpg" data-legenda="Plateia do teatro cheia durante a apresentação da ABRAz no palco"><img src="img/abraz/abraz-plateia-cheia.jpg" alt="Plateia do teatro cheia durante a apresentação da ABRAz no palco" loading="lazy"></button></div>
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/cursos/curso-de-teatro-2.jpg" data-legenda="Crianças e adolescentes em exercício de movimento na aula de teatro"><img src="img/cursos/curso-de-teatro-2.jpg" alt="Crianças e adolescentes em exercício de movimento na aula de teatro" loading="lazy"></button></div>
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/feiras/feira-artesanato-criadas-1.jpg" data-legenda="Barracas da feira de artesanato na noite de Criadas"><img src="img/feiras/feira-artesanato-criadas-1.jpg" alt="Barracas da feira de artesanato na noite de Criadas" loading="lazy"></button></div>
+                </div>
+                <div class="pat-cena__col pat-cena__col--b">
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/biblioteca/galeria/fachada-publico.jpg" data-legenda="Moradores chegando pela calçada no dia da abertura da biblioteca"><img src="img/biblioteca/galeria/fachada-publico.jpg" alt="Moradores chegando pela calçada no dia da abertura da biblioteca" loading="lazy"></button></div>
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/abraz/abraz-turma-no-palco.jpg" data-legenda="Grupo de jovens no palco do teatro em frente ao painel da ABRAz"><img src="img/abraz/abraz-turma-no-palco.jpg" alt="Grupo de jovens no palco do teatro em frente ao painel da ABRAz" loading="lazy"></button></div>
+                    <div class="pat-moldura"><button class="gal-item" type="button" data-foto="img/biblioteca/galeria/livro-de-rua.jpg" data-legenda="Livros disponíveis na calçada durante a ação de rua"><img src="img/biblioteca/galeria/livro-de-rua.jpg" alt="Livros disponíveis na calçada durante a ação de rua" loading="lazy"></button></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTATO ===== -->
+        <section class="pat-contato" id="contato">
+            <div class="pat-contato__midia" aria-hidden="true">
+                <video class="pat-contato__video" autoplay muted loop playsinline preload="none" poster="video/poster-patrocine-fundo.jpg">
+                    <source src="video/patrocine-fundo.mp4" type="video/mp4">
+                </video>
+                <span class="pat-tinta"></span>
+                <span class="pat-reticula"></span>
+            </div>
+
+            <div class="pat-letreiro" aria-hidden="true">
+                <div class="pat-letreiro__trilho">
+                    <div class="pat-letreiro__grupo"><span>Patrocine a cultura de São Gonçalo</span><i></i><em>Seu imposto vira cultura</em><i></i></div>
+                    <div class="pat-letreiro__grupo"><span>Patrocine a cultura de São Gonçalo</span><i></i><em>Seu imposto vira cultura</em><i></i></div>
+                </div>
+            </div>
+
+            <div class="container pat-contato__grade">
+                <div class="pat-contato__texto pat-sobe">
+                    <p class="pat-captacao"><span class="pat-pulso"></span> Captação aberta para 2026</p>
+                    <h2 class="pat-contato__titulo">Vamos colocar a sua marca <span>em cena?</span></h2>
+                    <p>Conte qual projeto combina com a sua empresa. Respondemos com a proposta de patrocínio e o passo a passo da lei correspondente.</p>
+                    <ul class="pat-canais">
+                        <li><i class="fas fa-envelope"></i><span class="pat-email">contato@institutosaopaio.org</span><button class="pat-copiar" type="button" data-copiar="contato@institutosaopaio.org">Copiar</button></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+5521998529573">(21) 9 9852-9573</a></li>
+                        <li><i class="fab fa-instagram"></i><a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener">@institutosaopaio</a></li>
+                    </ul>
+                </div>
+
+                <form class="form-card pat-form pat-sobe" id="form-patrocinio" novalidate>
+                    <h3 class="pat-form__titulo">Quero patrocinar</h3>
+                    <p class="pat-form__sub">A equipe do Instituto responde com a proposta de patrocínio.</p>
+                    <p class="pat-form__escolhido" id="pat-escolhido" hidden></p>
+                    <div class="pat-form__linha">
+                        <div class="field"><label for="pat-nome">Nome</label><input type="text" id="pat-nome" name="nome" autocomplete="name" required placeholder="Seu nome"></div>
+                        <div class="field"><label for="pat-empresa">Empresa</label><input type="text" id="pat-empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa"></div>
+                    </div>
+                    <div class="pat-form__linha">
+                        <div class="field"><label for="pat-email">E-mail</label><input type="email" id="pat-email" name="email" autocomplete="email" required placeholder="voce@empresa.com.br"></div>
+                        <div class="field"><label for="pat-telefone">Telefone</label><input type="tel" id="pat-telefone" name="telefone" autocomplete="tel" placeholder="(21) 9 0000-0000"></div>
+                    </div>
+                    <div class="field">
+                        <label for="pat-projeto">Projeto de interesse</label>
+                        <select id="pat-projeto" name="projeto">
+                            <option value="">Ainda não sei, quero ajuda para escolher</option>
+                            <optgroup label="Lei Federal (Rouanet)">
+                                <option>Biblioteca A Casa Amarela — Colubandê</option>
+                                <option>Som em Movimento</option>
+                                <option>Panorama Geek</option>
+                                <option>Engenharia do Entretenimento</option>
+                            </optgroup>
+                            <optgroup label="Lei Estadual (ICMS/RJ)">
+                                <option>1º Festival de Dança Kátia Farjado</option>
+                                <option>Cena Criativa: Festival de Inteligências Naturais em São Gonçalo</option>
+                                <option>Biblioteca A Casa Amarela — Jardim Catarina</option>
+                                <option>Guia Turístico-Cultural de São Gonçalo</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="field"><label for="pat-mensagem">Mensagem <span>(opcional)</span></label><textarea id="pat-mensagem" name="mensagem" rows="3" placeholder="Ex.: regime tributário da empresa, valor pretendido, prazo"></textarea></div>
+                    <p class="form-msg error" id="pat-erro" hidden></p>
+                    <p class="form-msg success" id="pat-sucesso" hidden></p>
+                    <button type="submit" class="btn-submit pat-ring"><i class="fas fa-paper-plane"></i> Enviar interesse</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== RODAPE (igual em todas as paginas) ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><img src="img/Logo.png" alt="Instituto São Paio"></div>
+                <p>Organização do Terceiro Setor e Ponto de Cultura, transformando vidas por meio do esporte, da cultura, da educação e da arte em São Gonçalo e no Leste Fluminense.</p>
+                <div class="social">
+                    <a href="https://www.instagram.com/institutosaopaio/" target="_blank" rel="noopener" aria-label="Instagram do Instituto"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/espacoculturalpanorama/" target="_blank" rel="noopener" aria-label="Instagram do Espaço Panorama"><i class="fas fa-masks-theater"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Odete São Paio, 151 — Colubandê, São Gonçalo - RJ</li>
+                    <li><i class="fas fa-envelope"></i> contato@institutosaopaio.org</li>
+                    <li><i class="fas fa-phone"></i> (21) 9 9852-9573</li>
+                    <li><i class="fas fa-id-card"></i> CNPJ 17.341.451/0001-95</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="iniciativas.html">Iniciativas</a></li>
+                    <li><a href="panorama.html">Espaço Cultural Panorama</a></li>
+                    <li><a href="biblioteca.html">Biblioteca A Casa Amarela</a></li>
+                    <li><a href="acervo.html">Acervo Digital</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="patrocine.html">Patrocine um projeto</a></li>
+                    <li><a href="doe.html">Faça uma doação</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span class="ano-atual">2026</span> Associação Instituto São Paio — Ponto de Cultura · CNPJ 17.341.451/0001-95 · São Gonçalo, RJ.
+        </div>
+    </footer>
+
+    <!-- ===== PÍLULA DE NAVEGAÇÃO DA PÁGINA ===== -->
+    <nav class="pat-pilula" aria-label="Seções desta página">
+        <a class="pat-pilula__marca" href="#topo" aria-label="Voltar ao topo">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9v82M9 50h82M21 21l58 58M79 21L21 79" stroke="currentColor" stroke-width="14" stroke-linecap="round" fill="none"/></svg>
+        </a>
+        <span class="pat-pilula__div" aria-hidden="true"></span>
+        <a class="pat-pilula__extra" href="#como-funciona" data-secao="como-funciona">Como funciona</a>
+        <a href="#ato-federal" data-secao="ato-federal">Federal</a>
+        <a href="#ato-estadual" data-secao="ato-estadual">Estadual</a>
+        <a class="pat-pilula__extra" href="#em-cena" data-secao="em-cena">Em cena</a>
+        <span class="pat-pilula__div" aria-hidden="true"></span>
+        <a class="pat-pilula__cta" href="#contato">Patrocinar <span aria-hidden="true">↗</span></a>
+    </nav>
+
+    <!-- GSAP só nesta página (animações). O script.js é o mesmo das outras páginas. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=20260920a"></script>
+    <script src="patrocine.js?v=20260926a"></script>
+</body>
+</html>
