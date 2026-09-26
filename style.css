@@ -1553,7 +1553,7 @@ html[data-tema="escuro"] .pat-tag--estadual { background: rgba(255,198,13,.16); 
 
 
 /* ============================================================
-   ABERTURA (contador 000 → 100, só na primeira visita da sessão)
+   ABERTURA (formas da logo + palavras, só na primeira visita da sessão)
    ============================================================ */
 .pat-intro {
     display: none; position: fixed; inset: 0; z-index: 9999;
@@ -1581,11 +1581,11 @@ html.pat-intro-on, html.pat-intro-on body { overflow: hidden; }
     font-family: var(--display); text-transform: uppercase; letter-spacing: 1px;
     font-size: clamp(3.4rem, 11vw, 8rem); line-height: .9; color: var(--azul);
 }
-.pat-intro__contador {
-    position: absolute; right: 32px; bottom: 30px;
-    font-family: var(--display); font-size: clamp(4.2rem, 14vw, 10rem); line-height: .85;
-    color: var(--texto); font-variant-numeric: tabular-nums;
-}
+/* os textos e as formas só aparecem quando a fonte do site já chegou
+   (o patrocine.js coloca a classe .is-pronta); antes, só o fundo branco */
+.pat-intro:not(.is-pronta) .pat-intro__rotulo,
+.pat-intro:not(.is-pronta) .pat-intro__centro,
+.pat-intro:not(.is-pronta) .pat-intro__pular { visibility: hidden; }
 .pat-intro__pular {
     position: absolute; left: 32px; bottom: 34px;
     font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-suave);
@@ -2034,7 +2034,6 @@ html[data-tema="escuro"] .pat-pilula__marca svg { color: #8ab4f8; }
     .pat-esfera { padding: 26px 22px 22px; }
     .pat-esfera dl > div { grid-template-columns: 1fr; gap: 4px; }
     .pat-intro__rotulo { left: 20px; top: 22px; }
-    .pat-intro__contador { right: 20px; }
     .pat-intro__pular { left: 20px; }
 }
 @media (max-width: 620px) {

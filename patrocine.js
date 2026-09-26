@@ -75,17 +75,35 @@
         });
     }
 
-    /* ---------- abertura: contador 000 → 100 (uma vez por sessão) ---------- */
+    /* ---------- espera as fontes do site (no máximo 1,5 s) ----------
+       Sem isso, os textos apareciam primeiro numa fonte reserva e
+       depois de novo, animados, na League Gothic. */
+    function quandoFontesProntas(seguir) {
+        var feito = false;
+        function vai() { if (feito) return; feito = true; seguir(); }
+        setTimeout(vai, 1500);
+        if (document.fonts && document.fonts.load) {
+            Promise.all([
+                document.fonts.load('400 1em "League Gothic"'),
+                document.fonts.load('700 1em "Montserrat"')
+            ]).then(vai, vai);
+        } else { vai(); }
+    }
+
+    /* ---------- abertura: formas da logo + palavras (uma vez por sessão) ---------- */
     function abertura(depois) {
         var intro = $('.pat-intro');
         if (!intro || !animar || !raiz.classList.contains('pat-intro-on')) {
             raiz.classList.remove('pat-intro-on');
-            depois();
+            if (animar) quandoFontesProntas(depois); else depois();
             return;
         }
         clearTimeout(window.__patIntroSeguranca);
+        quandoFontesProntas(function () { rodarAbertura(intro, depois); });
+    }
+
+    function rodarAbertura(intro, depois) {
         var palavra = $('.pat-intro__palavra', intro);
-        var contador = $('.pat-intro__contador', intro);
         var barra = $('.pat-intro__barra span', intro);
         var palavras = ['Cultura', 'Incentivo', 'Impacto'];
         var i = 0, estado = { v: 0 }, terminou = false;
@@ -111,12 +129,14 @@
             } });
         }
 
+        // a partir daqui a fonte já chegou: os textos aparecem uma vez só, já animados
+        intro.classList.add('is-pronta');
         var tl = gsap.timeline();
         tl.from($('.pat-intro__rotulo', intro), { y: -20, opacity: 0, duration: 0.6, ease: 'power3.out' }, 0)
+          .from($('.pat-intro__pular', intro), { opacity: 0, duration: 0.6 }, 0.2)
           .from($$('.pat-forma', intro), { scale: 0, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'back.out(1.8)' }, 0.1)
           .from(palavra, { y: 20, opacity: 0, duration: 0.4, ease: 'power2.out' }, 0.15)
           .to(estado, { v: 100, duration: 1.9, ease: 'power1.inOut', onUpdate: function () {
-              contador.textContent = String(Math.round(estado.v)).padStart(3, '0');
               barra.style.transform = 'scaleX(' + (estado.v / 100) + ')';
           } }, 0)
           .add(fechar, '+=0.3');
