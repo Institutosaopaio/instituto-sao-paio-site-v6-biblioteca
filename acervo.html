@@ -14,7 +14,7 @@
         (function(){try{var t=localStorage.getItem('isp-tema')||'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
     </script>
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <link rel="stylesheet" href="style.css?v=20260926c">
+    <link rel="stylesheet" href="style.css?v=20260926d">
 </head>
 <body>
     <!-- ===== CABECALHO (igual em todas as paginas) ===== -->
@@ -39,79 +39,100 @@
         </div>
     </header>
 
-    <section class="page-hero">
-        <p class="hero-eyebrow"><i class="fas fa-book-open"></i> Biblioteca A Casa Amarela Oton São Paio</p>
-        <h1 class="hero-title">Acervo Digital</h1>
-        <p>A estante da Casa Amarela também cabe no seu bolso. Aqui a gente reúne, num lugar só, as obras de literatura, literatura infantil e cordel
-        que já pertencem a todo mundo, prontas para ler no celular, no computador ou imprimir em casa.</p>
-        <div class="acervo-numeros">
-            <span><b>1.801</b> livros</span>
+    <!-- ===== VITRINE DO DIA: anel 3D de capas em meia-lua, girando sempre =====
+         O anel é montado pelo acervo.js. Nas datas marcadas (window.ACERVO_DATAS)
+         os textos do topo e os livros da roda mudam para o tema da data. -->
+    <section class="acv-palco" id="acv-palco" aria-roledescription="carrossel" aria-label="Vitrine do dia">
+        <div class="acv-pontos" aria-hidden="true"></div>
+        <div class="acv-halo" aria-hidden="true"></div>
+        <svg class="acv-orbita" id="acv-orbita" aria-hidden="true"></svg>
+        <div class="acv-cena" id="acv-cena"><div class="acv-anel" id="acv-anel" aria-hidden="true"></div></div>
+
+        <div class="acv-palco-topo">
+            <div class="acv-eyebrow"><h1>Acervo Digital</h1><span class="acv-ponto" aria-hidden="true">·</span><span id="rec-eyebrow">Vitrine do dia</span></div>
+            <h2 class="acv-titulo" id="rec-titulo">Para começar a <em>ler</em></h2>
+            <p class="acv-sub" id="rec-sub">Uma roda de clássicos que gira sozinha e muda todo dia. Arraste para girar, toque numa capa para abrir.</p>
+        </div>
+        <div class="acv-palco-meio" id="acv-palco-meio"></div>
+        <div class="acv-palco-base">
+            <button class="acv-seta" id="acv-seta-ant" type="button" aria-label="Livro anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <a class="acv-legenda acv-troca" id="acv-legenda" href="#acervo" rel="noopener">
+                <span class="acv-lt" id="acv-leg-t">&nbsp;</span>
+                <span class="acv-la" id="acv-leg-a">&nbsp;</span>
+                <span class="acv-ler">Ler agora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <button class="acv-seta" id="acv-seta-prox" type="button" aria-label="Próximo livro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <button class="acv-pausa" id="acv-pausa" type="button" aria-pressed="false" aria-label="Pausar a vitrine"><svg class="acv-i-pausa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg><svg class="acv-i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 8 5.5Z"/></svg></button>
+    </section>
+
+    <div class="acv-numeros-faixa">
+        <div class="acv-numeros">
+            <span><b id="acv-total">1.801</b> livros</span>
             <span><b>9</b> gêneros</span>
             <span><b>Sem</b> cadastro</span>
             <span><b>Sem</b> anúncio</span>
         </div>
-    </section>
+    </div>
 
-    <!-- ===== RECOMENDADOS DE HOJE (passa sozinho) ===== -->
-    <section class="section">
-        <div class="container">
-            <div class="section-head reveal">
-                <span class="eyebrow" id="rec-eyebrow">Vitrine do dia</span>
-                <h2 class="section-title" id="rec-titulo">Livros recomendados hoje</h2>
-                <p class="section-sub" id="rec-sub">Para quem não sabe por onde começar. A vitrine passa sozinha e a seleção muda todo dia.</p>
-            </div>
-            <div class="rec-palco reveal">
-                <div class="rec-trilho" id="rec-trilho"></div>
-            </div>
-            <div class="rec-pontos" id="rec-pontos"></div>
-        </div>
-    </section>
-
-    <!-- ===== ACERVO ===== -->
-    <section class="section section--alt" id="acervo">
-        <div class="container">
+    <!-- ===== ACERVO: busca, gêneros, estante e ordem ===== -->
+    <section class="section acv-acervo" id="acervo">
+        <div class="acv-wrap">
             <div class="section-head reveal">
                 <span class="eyebrow">Domínio público</span>
                 <h2 class="section-title">Nosso acervo</h2>
-                <p class="section-sub">São mais de mil e oitocentas obras. Busque pelo título ou pelo nome de quem escreveu, filtre por gênero e escolha a prateleira. Os três funcionam juntos.</p>
+                <p class="section-sub">A estante da Casa Amarela também cabe no seu bolso. Busque pelo título ou por quem escreveu, escolha um gênero e uma estante, e os livros aparecem na hora.</p>
             </div>
-            <div class="busca-caixa reveal">
-                <div class="acervo-ferramentas">
-                    <div class="acervo-busca">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <input type="search" id="acervo-busca" placeholder="Machado de Assis, Iracema, cordel..." aria-label="Buscar no acervo por título ou autor">
-                    </div>
-                    <label class="acervo-ordem">
-                        <span>Ordenar por</span>
-                        <select id="acervo-ordem" aria-label="Ordenar o acervo">
-                            <option value="titulo">Título, de A a Z</option>
-                            <option value="autor">Autor, de A a Z</option>
-                            <option value="capa">Com capa primeiro</option>
-                        </select>
+
+            <div class="acv-descoberta" id="acv-descoberta">
+                <div class="acv-cmd" id="acv-cmd">
+                    <label class="acv-cmd-campo" for="acv-busca">
+                        <svg class="acv-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6" stroke-linecap="round"/></svg>
+                        <input type="search" id="acv-busca" placeholder="Busque por título ou autor" autocomplete="off" spellcheck="false"
+                            role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="acv-sug" aria-label="Buscar no acervo por título ou autor">
+                        <span class="acv-kbd" aria-hidden="true">/</span>
+                        <button class="acv-limpa-busca" id="acv-limpa-busca" type="button" aria-label="Limpar a busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
                     </label>
+                    <div class="acv-sug" id="acv-sug" role="listbox" aria-label="Sugestões da busca"></div>
                 </div>
 
-                <div class="filtro-linha">
-                    <span class="filtro-rotulo"><i class="fas fa-bookmark"></i> Gênero</span>
-                    <div class="acervo-filtros" id="acervo-generos"></div>
-                </div>
+                <div class="acv-generos" id="acv-generos" role="group" aria-label="Gêneros"></div>
 
-                <div class="filtro-linha">
-                    <span class="filtro-rotulo"><i class="fas fa-layer-group"></i> Prateleira</span>
-                    <div class="acervo-filtros acervo-filtros--fina" id="acervo-filtros"></div>
+                <div class="acv-ferramentas" id="acv-ferramentas">
+                    <p class="acv-contador" id="acv-contador"><b>0</b><span id="acv-ct-txt">obras</span></p>
+                    <div class="acv-ferr-dir">
+                        <div class="acv-seg-bloco">
+                            <span class="acv-rotulo">Estante</span>
+                            <div class="acv-seg-wrap"><div class="acv-seg" id="acv-seg" role="group" aria-label="Estante"><span class="acv-seg-thumb" id="acv-seg-thumb"></span></div></div>
+                        </div>
+                        <div class="acv-ordem" id="acv-ordem">
+                            <button class="acv-ordem-btn" id="acv-ordem-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Ordenar a estante">
+                                <svg class="acv-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span class="acv-ordem-txt" id="acv-ordem-txt">Destaques primeiro</span>
+                                <svg class="acv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div class="acv-ordem-pop" id="acv-ordem-pop" role="menu"></div>
+                        </div>
+                    </div>
                 </div>
+                <div class="acv-ativos" id="acv-ativos"></div>
+                <p class="acv-sr" id="acv-aviso" aria-live="polite"></p>
             </div>
 
-            <p class="reveal acervo-contador" id="acervo-contador"></p>
-            <div class="acervo-limpar-linha">
-                <button type="button" class="btn btn--ghost btn--mini" id="acervo-limpar" hidden><i class="fas fa-rotate-left"></i> Limpar filtros</button>
-            </div>
-            <div class="acervo-grade reveal" id="acervo-grade"></div>
-            <div style="text-align:center;margin-top:40px;">
-                <button class="btn btn--accent" id="acervo-mais" type="button" hidden>Ver mais livros</button>
+            <div class="acv-estante" id="acv-estante"></div>
+            <div class="acv-mais-linha">
+                <button class="acv-mais" id="acv-mais" type="button" hidden>Ver mais livros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+                <span class="acv-mais-info" id="acv-mais-info"></span>
             </div>
         </div>
     </section>
+
+    <!-- doca flutuante: aparece quando o painel de busca sai da tela -->
+    <div class="acv-doca" id="acv-doca" role="toolbar" aria-label="Atalhos do acervo">
+        <button class="acv-d-ic" id="acv-d-busca" type="button" aria-label="Buscar no acervo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6" stroke-linecap="round"/></svg></button>
+        <button class="acv-d-info" id="acv-d-info" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke-linecap="round"/></svg><span id="acv-d-txt">Todo o acervo</span><b class="acv-d-n" id="acv-d-n">1.801</b></button>
+        <button class="acv-d-ic acv-d-topo" id="acv-d-topo" type="button" aria-label="Voltar para a vitrine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
 
     <!-- ===== FAIXA: DE ONDE VEM O ARQUIVO ===== -->
     <div class="ponto-cultura">
@@ -213,6 +234,6 @@
 
     <script src="dados.js?v=20260920a"></script>
     <script src="script.js?v=20260920a"></script>
-    <script src="acervo.js?v=20260920a"></script>
+    <script src="acervo.js?v=20260926a"></script>
 </body>
 </html>
