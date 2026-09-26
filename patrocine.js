@@ -188,14 +188,14 @@
         gsap.from('.pat-passos li', { y: 24, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
             scrollTrigger: { trigger: '.pat-passos', start: 'top 84%', once: true } });
 
-        // "Em cena": texto fixo no centro, fotos passando em camadas
-        mm.add('(min-width: 901px)', function () {
-            ScrollTrigger.create({ trigger: '.pat-cena', start: 'top top', end: 'bottom bottom', pin: '.pat-cena__centro', pinSpacing: false });
-            var cena = { trigger: '.pat-cena', start: 'top bottom', end: 'bottom top', scrub: true };
-            gsap.to('.pat-cena__col--a', { yPercent: -16, ease: 'none', scrollTrigger: cena });
-            gsap.to('.pat-cena__col--b', { yPercent: -38, ease: 'none', scrollTrigger: cena });
-            $$('.pat-moldura').forEach(function (m, k) {
-                gsap.fromTo(m, { rotate: k % 2 ? 5 : -5 }, { rotate: k % 2 ? -2 : 2, ease: 'none',
+        // "Em cena": as fotos entram e ganham um leve parallax ao rolar.
+        // Sem "pin" nem posição fixa — o deslocamento é pequeno e dentro do
+        // próprio espaço da foto, então nunca sobrepõe as outras seções.
+        gsap.from('.pat-galeria .pat-moldura', { opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out',
+            scrollTrigger: { trigger: '.pat-galeria', start: 'top 85%', once: true } });
+        mm.add('(min-width: 721px)', function () {
+            $$('.pat-galeria .pat-moldura').forEach(function (m) {
+                gsap.fromTo(m, { yPercent: 6 }, { yPercent: -6, ease: 'none',
                     scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: true } });
             });
         });

@@ -1817,22 +1817,25 @@ html[data-tema="escuro"] .pat-card:hover { border-color: #35507a; box-shadow: 0 
 
 
 /* ============================================================
-   EM CENA: galeria com rolagem em camadas (fotos abrem no lightbox)
+   EM CENA: galeria do Espaço Panorama (as fotos abrem no lightbox)
+   Layout em fluxo normal — texto e, abaixo, a galeria. Sem "pin"
+   nem posição fixa, para nunca sobrepor as seções vizinhas.
    ============================================================ */
-.pat-cena { position: relative; min-height: 230vh; background: var(--fundo); }
-.pat-cena__centro {
-    position: relative; z-index: 1; height: 100vh;
-    display: flex; align-items: center; justify-content: center;
+.pat-cena .section-head { margin-inline: auto; }
+.pat-galeria {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--pat-gap);
+    align-items: start;
 }
-.pat-cena__texto { max-width: 620px; padding: 0 24px; }
-.pat-cena__texto .section-head { margin-bottom: 30px; }
-.pat-cena__texto .btn { display: table; margin: 0 auto; }
-.pat-cena__colunas { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.pat-cena__col { position: absolute; top: 0; width: min(330px, 22vw); display: flex; flex-direction: column; gap: 16vh; }
-.pat-cena__col--a { left: max(24px, calc(50% - var(--pat-largura) / 2 + var(--pat-lateral))); padding-top: 58vh; }
-.pat-cena__col--b { right: max(24px, calc(50% - var(--pat-largura) / 2 + var(--pat-lateral))); padding-top: 96vh; }
-.pat-moldura { pointer-events: auto; }
-.pat-moldura .gal-item { aspect-ratio: 4/5; box-shadow: 0 20px 44px rgba(15,30,60,.18); border: 0; }
+/* a coluna do meio desce um pouco, dando ritmo de mosaico (estático, sem sobrepor) */
+.pat-galeria > .pat-moldura:nth-child(2),
+.pat-galeria > .pat-moldura:nth-child(5) { margin-top: clamp(24px, 4vw, 72px); }
+.pat-moldura { display: block; }
+.pat-moldura.gal-item {
+    aspect-ratio: 4/5; width: 100%; border: 0;
+    box-shadow: 0 20px 44px rgba(15,30,60,.18);
+}
+html[data-tema="escuro"] .pat-moldura.gal-item { box-shadow: 0 20px 44px rgba(0,0,0,.5); }
+.pat-cena__cta { text-align: center; margin-top: clamp(40px, 4.5vw, 72px); }
 
 
 /* ============================================================
@@ -2004,19 +2007,13 @@ html[data-tema="escuro"] .pat-pilula__marca svg { color: #8ab4f8; }
     .pat-card--7, .pat-card--5 { grid-column: auto; }
     .pat-contato__grade { grid-template-columns: 1fr; gap: 40px; }
 }
-@media (max-width: 900px) {
-    .pat-cena { min-height: 0; padding: 84px 0 72px; }
-    .pat-cena__centro { height: auto; }
-    .pat-cena__colunas {
-        position: static; pointer-events: auto;
-        display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 36px 16px 0;
-        max-width: 640px; margin: 0 auto;
-    }
-    .pat-cena__col { position: static; width: auto; padding-top: 0; gap: 12px; }
-    .pat-cena__col--b { padding-top: 44px; }
-}
 @media (max-width: 860px) {
     .pat-esferas { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+    .pat-galeria { grid-template-columns: repeat(2, 1fr); }
+    .pat-galeria > .pat-moldura:nth-child(5) { margin-top: 0; }
+    .pat-galeria > .pat-moldura:nth-child(2) { margin-top: clamp(20px, 6vw, 40px); }
 }
 @media (max-width: 760px) {
     .pat-passos ol { grid-template-columns: 1fr; gap: 22px; }
