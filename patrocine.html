@@ -10,11 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-    /* Tema salvo (igual às outras páginas) + preparo da abertura, antes de a página aparecer */
+    /* Tema pelo horário (igual às outras páginas: claro das 6h às 18h, escuro das
+       18h01 às 5h59, e a escolha do botão vale até a próxima virada) + preparo
+       da abertura, antes de a página aparecer */
     (function () {
         var raiz = document.documentElement;
         raiz.classList.add('pat-pagina');
-        try { raiz.setAttribute('data-tema', localStorage.getItem('isp-tema') || 'claro'); } catch (e) { raiz.setAttribute('data-tema', 'claro'); }
+        var tema = 'claro';
+        try {
+            var d = new Date(), m = d.getHours() * 60 + d.getMinutes();
+            if (m < 360 || m > 1080) tema = 'escuro';
+            var escolha = localStorage.getItem('isp-tema');
+            if ((escolha === 'claro' || escolha === 'escuro') && +localStorage.getItem('isp-tema-ate') > Date.now()) tema = escolha;
+        } catch (e) {}
+        raiz.setAttribute('data-tema', tema);
         var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (calmo) return;
         raiz.classList.add('pat-js');
@@ -489,7 +498,7 @@
     <!-- GSAP só nesta página (animações). O script.js é o mesmo das outras páginas. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=20260920a"></script>
+    <script src="script.js?v=20260926a"></script>
     <script src="patrocine.js?v=20260926d"></script>
 </body>
 </html>

@@ -26,14 +26,40 @@ document.addEventListener('DOMContentLoaded', function () {
     /* --------------------------------------------------------
        1b. MODO NOTURNO (botão lua/sol criado aqui pelo JS,
        por isso ele aparece em todas as páginas sem editar HTML)
+
+       O tema segue o horário de quem visita: claro das 6h às
+       18h e escuro das 18h01 às 5h59. O claro é o padrão.
+       Quem aperta o botão fica com o outro tema até a próxima
+       virada (6h ou 18h01); depois o horário volta a mandar.
+       A página não troca de tema no meio da leitura: a regra
+       vale ao abrir cada página (o <head> de cada uma já
+       aplica o tema antes de a página aparecer).
        -------------------------------------------------------- */
+    function temaDoHorario(d) {
+        var m = d.getHours() * 60 + d.getMinutes();
+        return (m >= 360 && m <= 1080) ? 'claro' : 'escuro';
+    }
+    function proximaVirada(d) {
+        var m = d.getHours() * 60 + d.getMinutes();
+        var alvo = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        if (m < 360) {
+            alvo.setHours(6, 0, 0, 0);                              // hoje às 6h
+        } else if (m <= 1080) {
+            alvo.setHours(18, 1, 0, 0);                             // hoje às 18h01
+        } else {
+            alvo.setDate(alvo.getDate() + 1); alvo.setHours(6, 0, 0, 0); // amanhã às 6h
+        }
+        return alvo.getTime();
+    }
     var headerInner = document.querySelector('.header-inner');
     if (headerInner) {
         var raiz = document.documentElement;
         if (!raiz.getAttribute('data-tema')) {
-            var pref = 'claro';
+            var pref = temaDoHorario(new Date());
             try {
-                pref = localStorage.getItem('isp-tema') || 'claro';
+                var escolha = localStorage.getItem('isp-tema');
+                var ate = +localStorage.getItem('isp-tema-ate');
+                if ((escolha === 'claro' || escolha === 'escuro') && ate > Date.now()) pref = escolha;
             } catch (err) {}
             raiz.setAttribute('data-tema', pref);
         }
@@ -49,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
         btnTema.addEventListener('click', function () {
             var novo = raiz.getAttribute('data-tema') === 'escuro' ? 'claro' : 'escuro';
             raiz.setAttribute('data-tema', novo);
-            try { localStorage.setItem('isp-tema', novo); } catch (err) {}
+            try {
+                localStorage.setItem('isp-tema', novo);
+                localStorage.setItem('isp-tema-ate', String(proximaVirada(new Date())));
+            } catch (err) {}
             pintarIcone();
         });
         var navToggle = headerInner.querySelector('.nav-toggle');

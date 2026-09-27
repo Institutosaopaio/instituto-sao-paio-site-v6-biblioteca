@@ -10,8 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        /* Aplica o tema salvo antes da página aparecer (evita "piscar") */
-        (function(){try{var t=localStorage.getItem('isp-tema')||'claro';document.documentElement.setAttribute('data-tema',t);}catch(e){}})();
+        /* Tema pelo horário de quem visita: claro das 6h às 18h e escuro das
+           18h01 às 5h59 (o claro é o padrão). A escolha feita no botão lua/sol
+           vale até a próxima virada. Aplica antes da página aparecer (evita "piscar"). */
+        (function(){var t='claro';try{var d=new Date(),m=d.getHours()*60+d.getMinutes();if(m<360||m>1080)t='escuro';var e=localStorage.getItem('isp-tema');if((e==='claro'||e==='escuro')&&+localStorage.getItem('isp-tema-ate')>Date.now())t=e;}catch(x){}document.documentElement.setAttribute('data-tema',t);})();
     </script>
     <link rel="icon" type="image/png" href="img/Logo.png">
     <link rel="stylesheet" href="style.css?v=20260926e">
@@ -206,6 +208,6 @@
     </footer>
 
     <script src="dados.js?v=20260920a"></script>
-    <script src="script.js?v=20260920a"></script>
+    <script src="script.js?v=20260926a"></script>
 </body>
 </html>
