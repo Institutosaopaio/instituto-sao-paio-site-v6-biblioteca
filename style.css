@@ -1541,6 +1541,8 @@ html[data-tema="escuro"] {
 .pat-tag--estadual { background: rgba(255,198,13,.24); color: #6b4f00; }
 html[data-tema="escuro"] .pat-tag--federal  { background: rgba(138,180,248,.14); color: #8ab4f8; }
 html[data-tema="escuro"] .pat-tag--estadual { background: rgba(255,198,13,.16); color: var(--amarelo); }
+.pat-tag--analise { background: rgba(31,39,51,.08); color: #46526a; }
+html[data-tema="escuro"] .pat-tag--analise { background: rgba(255,255,255,.1); color: #b9c4d6; }
 
 /* texto só para leitores de tela */
 .pat-sr {
@@ -1815,6 +1817,12 @@ html[data-tema="escuro"] .pat-card:hover { border-color: #35507a; box-shadow: 0 
     font-size: clamp(2.05rem, 1.1vw + 1.6rem, 2.7rem); line-height: 1; color: var(--texto); font-variant-numeric: tabular-nums; margin-top: 6px;
 }
 
+/* cartão de largura inteira (Plano Bianual): foto de um lado, texto do outro */
+.pat-card--12 { grid-column: span 12; flex-direction: row; }
+.pat-card--12 .pat-card__midia { flex: 0 0 42%; height: auto; min-height: clamp(320px, 30vw, 480px); }
+.pat-card--12 .pat-card__corpo { min-width: 0; }
+.pat-card__tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
 
 /* ============================================================
    EM CENA: galeria com rolagem em camadas (fotos abrem no lightbox)
@@ -2001,7 +2009,9 @@ html[data-tema="escuro"] .pat-pilula__marca svg { color: #8ab4f8; }
    ============================================================ */
 @media (max-width: 960px) {
     .pat-bento { grid-template-columns: 1fr; }
-    .pat-card--7, .pat-card--5 { grid-column: auto; }
+    .pat-card--7, .pat-card--5, .pat-card--12 { grid-column: auto; }
+    .pat-card--12 { flex-direction: column; }
+    .pat-card--12 .pat-card__midia { flex: none; height: clamp(260px, 52vw, 420px); min-height: 0; }
     .pat-contato__grade { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 900px) {

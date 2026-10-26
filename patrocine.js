@@ -41,7 +41,7 @@
     function girarPalavra() {
         var el = $('.pat-giro-palavra');
         if (!el || semMovimento) return;
-        var lista = ['leitura', 'música', 'dança', 'games', 'turismo', 'teatro', 'festival'];
+        var lista = ['leitura', 'música', 'dança', 'esporte', 'games', 'turismo', 'teatro', 'festival'];
         var i = 0;
         setInterval(function () {
             i = (i + 1) % lista.length;
@@ -105,7 +105,7 @@
     function rodarAbertura(intro, depois) {
         var palavra = $('.pat-intro__palavra', intro);
         var barra = $('.pat-intro__barra span', intro);
-        var palavras = ['Cultura', 'Incentivo', 'Impacto'];
+        var palavras = ['Cultura', 'Esporte', 'Incentivo', 'Impacto'];
         var i = 0, estado = { v: 0 }, terminou = false;
 
         var troca = setInterval(function () {
@@ -136,7 +136,7 @@
           .from($('.pat-intro__pular', intro), { opacity: 0, duration: 0.6 }, 0.2)
           .from($$('.pat-forma', intro), { scale: 0, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'back.out(1.8)' }, 0.1)
           .from(palavra, { y: 20, opacity: 0, duration: 0.4, ease: 'power2.out' }, 0.15)
-          .to(estado, { v: 100, duration: 1.9, ease: 'power1.inOut', onUpdate: function () {
+          .to(estado, { v: 100, duration: 2.5, ease: 'power1.inOut', onUpdate: function () {
               barra.style.transform = 'scaleX(' + (estado.v / 100) + ')';
           } }, 0)
           .add(fechar, '+=0.3');
