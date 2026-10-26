@@ -41,7 +41,7 @@
     function girarPalavra() {
         var el = $('.pat-giro-palavra');
         if (!el || semMovimento) return;
-        var lista = ['leitura', 'música', 'dança', 'esporte', 'games', 'turismo', 'teatro', 'festival'];
+        var lista = ['leitura', 'esporte', 'música', 'dança', 'games', 'turismo', 'teatro', 'festival'];
         var i = 0;
         setInterval(function () {
             i = (i + 1) % lista.length;
