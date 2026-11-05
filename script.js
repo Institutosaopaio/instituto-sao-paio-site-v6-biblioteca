@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Cursos de audiovisual (Lei Paulo Gustavo)',
                 'Oficinas de produção de eventos e projetos culturais',
                 'Cursos de piano, violão, canto, teatro e dança de salão',
+                'Formação de Mediadoras de Aprendizagem, com 180 horas, para a educação inclusiva',
                 'Projeto Social de Robótica com a WeBOT, para crianças de 6 a 10 anos',
                 'Biblioteca A Casa Amarela, com empréstimo de livros e clube de leitura',
                 'Campanha "Liberte um Livro" e o projeto Livro de Rua',

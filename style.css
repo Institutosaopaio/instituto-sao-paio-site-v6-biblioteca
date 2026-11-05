@@ -2633,6 +2633,26 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 .ini .ini-turma--inv .ini-disco { order: 2; justify-self: end; }
 .ini .ini-turma h3 { font-size: 52px; margin-bottom: 16px; }
 .ini .ini-turma p { max-width: 44ch; margin-bottom: 24px; }
+/* curso com mais informação (Formação de Mediadoras): ficha, lista de módulos que abre e fecha, disco alinhado ao topo */
+.ini .ini-turma--longa { align-items: start; }
+.ini .ini-turma .ini-ficha { margin: 0 0 16px; max-width: 560px; }
+.ini .ini-turma .ini-ficha div { grid-template-columns: 128px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--ini-fio); font-size: 16px; line-height: 1.5; }
+.ini .ini-turma .ini-ficha dt { color: var(--ini-titulo); }
+.ini .ini-turma .ini-ficha dd { color: var(--texto); }
+.ini .ini-modulos { max-width: 560px; margin-bottom: 24px; }
+.ini .ini-modulos summary {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 44px; list-style: none; cursor: pointer;
+    font: 700 16px/1.3 var(--corpo); color: var(--ini-link);
+    text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
+}
+.ini .ini-modulos summary::-webkit-details-marker { display: none; }
+.ini .ini-modulos summary:hover { color: var(--ini-link-hover); }
+.ini .ini-modulos summary i { font-size: 13px; transition: transform .2s; }
+.ini .ini-modulos[open] summary i { transform: rotate(180deg); }
+.ini .ini-modulos ol { counter-reset: modulo; margin-top: 4px; }
+.ini .ini-modulos li { counter-increment: modulo; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 0 12px; padding: 10px 0; border-top: 1px solid var(--ini-fio); font-size: 16px; line-height: 1.45; }
+.ini .ini-modulos li::before { content: counter(modulo) "."; font-weight: 800; color: var(--ini-titulo); }
+.ini .ini-mod-h { font-weight: 700; color: var(--texto-suave); white-space: nowrap; }
 .ini .ini-disco { --d: 400px; position: relative; width: var(--d); height: var(--d); margin: 0 24px 24px 0; }
 .ini .ini-disco img { position: relative; z-index: 1; width: var(--d); height: var(--d); border-radius: 50%; object-fit: cover; max-width: none; }
 .ini .ini-anel {
@@ -2840,6 +2860,7 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
     .ini .ini-rob .ini-lead { font-size: 19px; }
     .ini .ini-rob p { font-size: 17px; }
     .ini .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .ini .ini-turma .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
     .ini .ini-rob-fotos { grid-template-columns: minmax(0, 1fr); }
     .ini .ini-cine-topo h2 { font-size: min(60px, 17cqi); }
     .ini .ini-desde { font-size: 28px; }
@@ -2883,6 +2904,7 @@ html[data-tema="escuro"] .ini .ini-fotocapa { background: #0a111d; }
 
 @media (prefers-reduced-motion: reduce) {
     .ini .ini-cartao { transition: none; }
+    .ini .ini-modulos summary i { transition: none; }
 }
 
 /* ---- navegador sem container queries: o mesmo trecho responsivo, por largura da janela ---- */
@@ -2969,6 +2991,7 @@ html[data-tema="escuro"] .ini .ini-fotocapa { background: #0a111d; }
         .ini .ini-rob .ini-lead { font-size: 19px; }
         .ini .ini-rob p { font-size: 17px; }
         .ini .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+        .ini .ini-turma .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
         .ini .ini-rob-fotos { grid-template-columns: minmax(0, 1fr); }
         .ini .ini-cine-topo h2 { font-size: min(60px, 17vw); }
         .ini .ini-desde { font-size: 28px; }
