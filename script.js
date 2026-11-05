@@ -134,13 +134,14 @@ document.addEventListener('DOMContentLoaded', function () {
         educacao: {
             tag: 'Iniciativa',
             titulo: 'Educação',
-            desc: 'Educação que abre portas: capacitação gratuita, leitura e formação ' +
+            desc: 'Educação que abre portas: capacitação, leitura e formação ' +
                   'profissional para a comunidade de São Gonçalo.',
             itens: [
-                'Cursos gratuitos de audiovisual (Lei Paulo Gustavo)',
+                'Cursos de audiovisual (Lei Paulo Gustavo)',
                 'Oficinas de produção de eventos e projetos culturais',
-                'Cursos gratuitos de piano, violão, canto, teatro e dança de salão',
-                'Biblioteca A Casa Amarela, com empréstimo gratuito e clube de leitura',
+                'Cursos de piano, violão, canto, teatro e dança de salão',
+                'Projeto Social de Robótica com a WeBOT, para crianças de 6 a 10 anos',
+                'Biblioteca A Casa Amarela, com empréstimo de livros e clube de leitura',
                 'Campanha "Liberte um Livro" e o projeto Livro de Rua',
                 'Consultoria e pesquisa (parceria UNESCO)'
             ]
@@ -149,12 +150,12 @@ document.addEventListener('DOMContentLoaded', function () {
             tag: 'Iniciativa',
             titulo: 'Cultura e Arte',
             desc: 'Como Ponto de Cultura, levamos teatro, cinema, leitura, música e dança ' +
-                  'para a cidade, sempre de forma gratuita para a comunidade.',
+                  'para a comunidade de São Gonçalo.',
             itens: [
                 'Teatro e espetáculos no Espaço Cultural Panorama',
                 'Cineclube Panorama e sessões de cinema gratuitas',
                 'Estúdio de podcast e videocast "A Resenha do IES"',
-                'Cursos gratuitos de teatro e dança de salão',
+                'Cursos de teatro e dança de salão',
                 'Biblioteca A Casa Amarela e o Encontro de Mães Empreendedoras',
                 'Editais de ocupação com isenção de taxas'
             ]
