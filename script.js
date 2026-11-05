@@ -169,9 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var mDesc  = document.getElementById('modal-descricao');
         var mItens = document.getElementById('modal-itens');
 
-        function abrirModal(chave) {
+        var mOrigem = null;   /* quem abriu o modal: o foco volta para lá ao fechar */
+
+        function abrirModal(chave, origem) {
             var a = areas[chave];
             if (!a) return;
+            mOrigem = origem || null;
             mTag.textContent = a.tag;
             mTit.textContent = a.titulo;
             mDesc.textContent = a.desc;
@@ -183,21 +186,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
+            document.getElementById('modal-fechar').focus({ preventScroll: true });
         }
         function fecharModal() {
+            if (!modal.classList.contains('open')) return;
             modal.classList.remove('open');
             document.body.style.overflow = '';
+            if (mOrigem && document.body.contains(mOrigem)) mOrigem.focus({ preventScroll: true });
+            mOrigem = null;
         }
 
-        document.querySelectorAll('.card[data-area] .btn-vermais').forEach(function (b) {
+        document.querySelectorAll('[data-area] .btn-vermais').forEach(function (b) {
             b.addEventListener('click', function () {
-                abrirModal(b.closest('.card').getAttribute('data-area'));
+                abrirModal(b.closest('[data-area]').getAttribute('data-area'), b);
             });
         });
         document.getElementById('modal-fechar').addEventListener('click', fecharModal);
         document.getElementById('modal-fechar-2').addEventListener('click', fecharModal);
         modal.addEventListener('click', function (e) { if (e.target === modal) fecharModal(); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharModal(); });
+        document.addEventListener('keydown', function (e) {
+            if (!modal.classList.contains('open')) return;
+            if (e.key === 'Escape') { fecharModal(); return; }
+            if (e.key !== 'Tab') return;
+            /* o Tab dá a volta dentro da janela */
+            var foco = modal.querySelectorAll('button, a[href]');
+            if (!foco.length) return;
+            var primeiro = foco[0];
+            var ultimo = foco[foco.length - 1];
+            if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
+            else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
+        });
     }
 
 
@@ -610,6 +628,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var lb = document.createElement('div');
     lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Foto ampliada');
     lb.innerHTML = '<button class="lightbox-fechar" aria-label="Fechar">&times;</button>' +
                    '<button class="lightbox-seta lightbox-seta--ant" aria-label="Foto anterior">&#8249;</button>' +
                    '<figure><img alt=""><figcaption></figcaption></figure>' +
@@ -624,6 +645,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var lbIndice = 0;
     var lbAberto = false;
     var lbColocado = false;
+    var lbOrigem = null;   /* botão da foto que abriu o lightbox: o foco volta para ele */
 
     function lbPinta() {
         var f = lbFotos[lbIndice];
@@ -640,15 +662,19 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!lbColocado) { document.body.appendChild(lb); lbColocado = true; }
         lbFotos = fotos;
         lbIndice = indice || 0;
+        lbOrigem = document.activeElement;
         lbPinta();
         lb.classList.add('open');
         document.body.style.overflow = 'hidden';
         lbAberto = true;
+        lb.querySelector('.lightbox-fechar').focus({ preventScroll: true });
     }
     function lbFechar() {
         lb.classList.remove('open');
         document.body.style.overflow = '';
         lbAberto = false;
+        if (lbOrigem && lbOrigem !== document.body && document.body.contains(lbOrigem)) lbOrigem.focus({ preventScroll: true });
+        lbOrigem = null;
     }
     function lbAndar(passo) {
         if (!lbFotos.length) return;
@@ -665,12 +691,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.key === 'Escape') lbFechar();
         if (e.key === 'ArrowLeft') lbAndar(-1);
         if (e.key === 'ArrowRight') lbAndar(1);
+        if (e.key === 'Tab') {
+            /* o Tab dá a volta entre os botões que aparecem */
+            var botoes = Array.prototype.filter.call(lb.querySelectorAll('button'), function (b) { return !b.hidden; });
+            if (!botoes.length) return;
+            var p = botoes[0];
+            var u = botoes[botoes.length - 1];
+            if (e.shiftKey && document.activeElement === p) { e.preventDefault(); u.focus(); }
+            else if (!e.shiftKey && document.activeElement === u) { e.preventDefault(); p.focus(); }
+        }
     });
 
-    /* fotos avulsas */
-    document.querySelectorAll('.gal-item[data-foto]').forEach(function (item) {
+    /* fotos avulsas (.gal-item das galerias e .ini-zoom da página de iniciativas) */
+    document.querySelectorAll('.gal-item[data-foto], .ini-zoom[data-foto]').forEach(function (item) {
         var img = item.querySelector('img');
-        if (img) fallbackImg(img);
+        if (img && item.classList.contains('gal-item')) fallbackImg(img);
         item.addEventListener('click', function () {
             lbAbrir([{ foto: item.getAttribute('data-foto'), legenda: item.getAttribute('data-legenda') || '' }], 0);
         });
