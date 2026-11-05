@@ -2559,13 +2559,13 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 }
 
 .ini .ini-wrap { max-width: 1440px; margin-inline: auto; padding-inline: 56px; }
-.ini .ini-sec { padding-block: 112px; }
+.ini .ini-sec { padding-block: 80px; }
 .ini .ini-alt { background: var(--fundo-alt); }
 .ini .ini-cartaz {
     font-family: var(--display); font-weight: 400; text-transform: uppercase;
     letter-spacing: .5px; line-height: .98; color: var(--ini-titulo); text-wrap: balance;
 }
-.ini .ini-lead { font-size: 22px; line-height: 1.5; font-weight: 600; margin-bottom: 16px; }
+.ini .ini-lead { font-size: 20px; line-height: 1.5; font-weight: 600; margin-bottom: 16px; }
 
 /* botão cheio, link de texto e o "Ver o que realizamos" (botão que parece link) */
 .ini .ini-btn {
@@ -2592,16 +2592,16 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 /* ---- capa ---- */
 .ini .ini-capa .ini-wrap {
     display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 64px;
-    align-items: end; padding-block: 72px 40px;
+    align-items: end; padding-block: 56px 32px;
 }
 .ini .ini-capa h1 { display: flex; flex-direction: column; }
-.ini .ini-capa .ini-l1 { display: block; font-size: 72px; font-size: clamp(56px, 5cqi, 72px); }
-.ini .ini-capa .ini-l2 { display: block; font-size: 188px; font-size: clamp(112px, 13.06cqi, 188px); line-height: .86; }
+.ini .ini-capa .ini-l1 { display: block; font-size: 44px; font-size: clamp(36px, 3.06cqi, 44px); }
+.ini .ini-capa .ini-l2 { display: block; font-size: 120px; font-size: clamp(80px, 8.33cqi, 120px); line-height: .86; }
 .ini .ini-capa-txt { padding-bottom: 8px; }
-.ini .ini-lede { font-size: 22px; line-height: 1.5; font-weight: 600; margin-bottom: 16px; }
+.ini .ini-lede { font-size: 20px; line-height: 1.5; font-weight: 600; margin-bottom: 16px; }
 .ini .ini-sub { color: var(--texto-suave); }
 .ini .ini-atalhos {
-    grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0 32px; margin-top: 40px;
+    grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0 32px; margin-top: 32px;
     padding-top: 12px; border-top: 1px solid var(--borda);
 }
 .ini .ini-atalhos a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 700; text-decoration: none; }
@@ -2615,23 +2615,23 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 .ini .ini-faixa span:nth-child(3) { background: var(--ini-amar); }
 
 /* ---- as três áreas ---- */
-.ini .ini-areas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px; padding-block: 72px 104px; }
+.ini .ini-areas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px; padding-block: 56px 80px; }
 .ini .ini-area { display: flex; flex-direction: column; gap: 20px; }
-.ini .ini-area h2 { display: flex; align-items: flex-end; min-height: 264px; }
-.ini .ini-area .ini-t1 { font-size: 64px; font-size: clamp(44px, 4.45cqi, 64px); }
-.ini .ini-area .ini-t2 { font-size: 96px; font-size: clamp(66px, 6.67cqi, 96px); }
-.ini .ini-area .ini-t3 { font-size: 128px; font-size: clamp(88px, 8.89cqi, 128px); }
+.ini .ini-area h2 { display: flex; align-items: flex-end; min-height: 72px; }
+.ini .ini-area .ini-t1 { font-size: 40px; font-size: clamp(32px, 2.78cqi, 40px); }
+.ini .ini-area .ini-t2 { font-size: 56px; font-size: clamp(44px, 3.89cqi, 56px); }
+.ini .ini-area .ini-t3 { font-size: 72px; font-size: clamp(52px, 5cqi, 72px); }
 .ini .ini-area p { max-width: 34ch; }
 .ini .ini-area .ini-ver { margin-top: auto; }
 
 /* ---- cursos ---- */
-.ini .ini-cursos-topo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 104px; }
-.ini .ini-cursos-topo h2 { font-size: 150px; font-size: clamp(96px, 10.42cqi, 150px); }
-.ini .ini-cursos-topo p { font-size: 20px; line-height: 1.6; max-width: 36ch; }
-.ini .ini-turma { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px; align-items: center; margin-bottom: 104px; }
+.ini .ini-cursos-topo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 64px; }
+.ini .ini-cursos-topo h2 { font-size: 88px; font-size: clamp(64px, 6.11cqi, 88px); }
+.ini .ini-cursos-topo p { font-size: 18px; line-height: 1.6; max-width: 40ch; }
+.ini .ini-turma { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center; margin-bottom: 64px; }
 .ini .ini-turma .ini-disco { justify-self: start; }
 .ini .ini-turma--inv .ini-disco { order: 2; justify-self: end; }
-.ini .ini-turma h3 { font-size: 80px; margin-bottom: 20px; }
+.ini .ini-turma h3 { font-size: 52px; margin-bottom: 16px; }
 .ini .ini-turma p { max-width: 44ch; margin-bottom: 24px; }
 .ini .ini-disco { --d: 400px; position: relative; width: var(--d); height: var(--d); margin: 0 24px 24px 0; }
 .ini .ini-disco img { position: relative; z-index: 1; width: var(--d); height: var(--d); border-radius: 50%; object-fit: cover; max-width: none; }
@@ -2642,49 +2642,49 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 .ini .ini-anel--v { border-color: var(--ini-verm); }
 .ini .ini-anel--z { border-color: var(--ini-azul-vivo); }
 .ini .ini-mais { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px; margin-top: 8px; }
-.ini .ini-mais li { padding: 32px 0 24px; border-top: 1px solid var(--ini-fio); }
-.ini .ini-mais h3 { font: 800 22px/1.25 var(--corpo); color: var(--texto); margin-bottom: 8px; }
+.ini .ini-mais li { padding: 24px 0 20px; border-top: 1px solid var(--ini-fio); }
+.ini .ini-mais h3 { font: 800 20px/1.25 var(--corpo); color: var(--texto); margin-bottom: 8px; }
 .ini .ini-mais p { max-width: 46ch; margin-bottom: 4px; }
-.ini .ini-nota { margin-top: 64px; max-width: 920px; font-size: 22px; line-height: 1.55; font-weight: 600; }
-.ini .ini-aula { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 88px; align-items: center; margin-top: 120px; }
+.ini .ini-nota { margin-top: 48px; max-width: 920px; font-size: 20px; line-height: 1.55; font-weight: 600; }
+.ini .ini-aula { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: center; margin-top: 80px; }
 .ini .ini-aula video { width: 100%; height: auto; aspect-ratio: 480 / 566; border-radius: 16px; background: #000; color: #fff; }
 .ini .ini-aula figcaption { font-size: 14px; line-height: 1.5; color: var(--texto-suave); margin-top: 12px; }
-.ini .ini-aula h3 { font-size: 84px; margin-bottom: 24px; }
+.ini .ini-aula h3 { font-size: 52px; margin-bottom: 16px; }
 .ini .ini-aula p { max-width: 50ch; }
 
 /* ---- robótica (bloco azul) ---- */
 .ini .ini-rob { background: var(--ini-rob); color: #fff; --ini-foco: #fff; }
-.ini .ini-rob .ini-wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 80px; align-items: start; padding-block: 120px; }
-.ini .ini-rob h2 { font-size: 150px; font-size: clamp(96px, 10.42cqi, 150px); color: #fff; }
-.ini .ini-rob .ini-nome { display: block; margin-top: 24px; font: 700 28px/1.2 var(--corpo); text-transform: none; letter-spacing: 0; }
-.ini .ini-rob .ini-lead { font-size: 24px; line-height: 1.45; font-weight: 600; margin-bottom: 20px; color: #fff; }
-.ini .ini-rob p { color: #fff; font-size: 19px; max-width: 52ch; }
-.ini .ini-ficha { margin-top: 44px; }
-.ini .ini-ficha div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.4); }
+.ini .ini-rob .ini-wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: start; padding-block: 88px; }
+.ini .ini-rob h2 { font-size: 88px; font-size: clamp(64px, 6.11cqi, 88px); color: #fff; }
+.ini .ini-rob .ini-nome { display: block; margin-top: 16px; font: 700 24px/1.25 var(--corpo); text-transform: none; letter-spacing: 0; }
+.ini .ini-rob .ini-lead { font-size: 21px; line-height: 1.45; font-weight: 600; margin-bottom: 16px; color: #fff; }
+.ini .ini-rob p { color: #fff; font-size: 17px; max-width: 56ch; }
+.ini .ini-ficha { margin-top: 32px; }
+.ini .ini-ficha div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,.4); }
 .ini .ini-ficha dt { font-weight: 800; color: var(--ini-amar); }
 .ini .ini-ficha dd { color: #fff; }
-.ini .ini-rob-fotos { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 80px; align-items: start; }
+.ini .ini-rob-fotos { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: start; }
 .ini .ini-rob-foto { min-width: 0; }
 .ini .ini-rob-foto img { width: 100%; height: auto; border-radius: 16px; }
 
 /* ---- cineclube ---- */
-.ini .ini-cine-topo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 72px; }
-.ini .ini-cine-topo h2 { font-size: 150px; font-size: clamp(96px, 10.42cqi, 150px); }
-.ini .ini-desde { display: block; margin-top: 16px; font-size: 48px; line-height: 1; }
+.ini .ini-cine-topo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 48px; }
+.ini .ini-cine-topo h2 { font-size: 88px; font-size: clamp(64px, 6.11cqi, 88px); }
+.ini .ini-desde { display: block; margin-top: 8px; font-size: 32px; line-height: 1; }
 .ini .ini-cine-topo p { max-width: 42ch; }
 .ini .ini-linha { display: flex; gap: 16px; align-items: flex-start; }
 .ini .ini-linha figure { flex: var(--r) 1 0%; min-width: 0; }
 .ini .ini-linha img { width: 100%; height: auto; border-radius: 16px; }
 .ini .ini-linha figcaption { font-size: 14px; line-height: 1.5; color: var(--texto-suave); margin-top: 12px; }
 .ini .ini-linha--cartaz img { box-shadow: 0 0 0 1px var(--ini-aro); }
-.ini .ini-cartazes { margin-top: 104px; }
-.ini .ini-cartazes h3 { font-size: 80px; margin-bottom: 32px; }
+.ini .ini-cartazes { margin-top: 64px; }
+.ini .ini-cartazes h3 { font-size: 52px; margin-bottom: 24px; }
 .ini .ini-nota-cine { margin-top: 40px; font-size: 18px; }
 
 /* ---- feiras ---- */
-.ini .ini-feiras-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; margin-bottom: 72px; }
-.ini .ini-feiras-topo h2 { font-size: 104px; font-size: clamp(56px, calc(7.2cqi - 8px), 104px); }
-.ini .ini-feiras-topo h3 { font: 800 24px/1.3 var(--corpo); color: var(--texto); margin: 32px 0 12px; }
+.ini .ini-feiras-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; margin-bottom: 48px; }
+.ini .ini-feiras-topo h2 { font-size: 64px; font-size: clamp(44px, 4.44cqi, 64px); }
+.ini .ini-feiras-topo h3 { font: 800 22px/1.3 var(--corpo); color: var(--texto); margin: 24px 0 8px; }
 .ini .ini-feiras-topo p { max-width: 56ch; margin-bottom: 16px; }
 .ini .ini-feiras-topo .ini-lead { margin-bottom: 0; }
 .ini .ini-fotos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
@@ -2693,47 +2693,47 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 .ini .ini-fotos figcaption { font-size: 14px; line-height: 1.5; color: var(--texto-suave); margin-top: 12px; }
 
 /* ---- ação social (ABRAz) ---- */
-.ini .ini-abraz-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 80px; }
-.ini .ini-abraz-topo h2 { font-size: 150px; font-size: clamp(96px, 10.42cqi, 150px); }
+.ini .ini-abraz-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 48px; }
+.ini .ini-abraz-topo h2 { font-size: 88px; font-size: clamp(64px, 6.11cqi, 88px); }
 .ini .ini-abraz-topo .ini-lead { margin-bottom: 0; max-width: 46ch; }
-.ini .ini-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 104px; }
+.ini .ini-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 64px; }
 .ini .ini-nums li { display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 8px 32px; border-left: 1px solid var(--ini-fio); }
 .ini .ini-nums li:first-child { border-left: 0; padding-left: 0; }
 .ini .ini-nums .ini-n {
-    display: flex; align-items: flex-end; min-height: 206px; font-family: var(--display); text-transform: uppercase;
-    letter-spacing: .5px; font-size: 112px; font-size: clamp(72px, 7.78cqi, 112px); line-height: .92; color: var(--ini-titulo);
+    display: flex; align-items: flex-end; min-height: 0; font-family: var(--display); text-transform: uppercase;
+    letter-spacing: .5px; font-size: 64px; font-size: clamp(48px, 4.44cqi, 64px); line-height: .92; color: var(--ini-titulo);
 }
 .ini .ini-nums .ini-r { color: var(--texto-suave); max-width: 28ch; }
-.ini .ini-abraz-texto { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start; margin-bottom: 120px; }
-.ini .ini-abraz-texto h3 { font: 800 32px/1.25 var(--corpo); color: var(--texto); }
+.ini .ini-abraz-texto { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; margin-bottom: 72px; }
+.ini .ini-abraz-texto h3 { font: 800 26px/1.3 var(--corpo); color: var(--texto); }
 .ini .ini-abraz-texto p { max-width: 60ch; margin-bottom: 16px; }
-.ini .ini-album h3 { font: 800 40px/1.2 var(--corpo); color: var(--texto); margin-bottom: 8px; }
-.ini .ini-leg { color: var(--texto-suave); margin-bottom: 32px; }
+.ini .ini-album h3 { font: 800 30px/1.25 var(--corpo); color: var(--texto); margin-bottom: 8px; }
+.ini .ini-leg { color: var(--texto-suave); margin-bottom: 24px; }
 .ini .ini-album .ini-linha + .ini-linha { margin-top: 24px; }
 
 /* ---- cursos e oficinas online ---- */
-.ini .ini-on-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 72px; }
-.ini .ini-on-topo h2 { font-size: 140px; font-size: clamp(88px, 9.72cqi, 140px); }
+.ini .ini-on-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 48px; }
+.ini .ini-on-topo h2 { font-size: 84px; font-size: clamp(60px, 5.83cqi, 84px); }
 .ini .ini-on-topo .ini-lead { margin-bottom: 0; max-width: 46ch; }
 .ini .ini-on-foto img { width: 100%; height: auto; border-radius: 16px; }
 .ini .ini-on-foto figcaption { font-size: 14px; line-height: 1.5; color: var(--texto-suave); margin-top: 12px; }
-.ini .ini-on-texto { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start; margin-top: 96px; }
-.ini .ini-on-texto h3 { font: 800 32px/1.25 var(--corpo); color: var(--texto); }
+.ini .ini-on-texto { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; margin-top: 64px; }
+.ini .ini-on-texto h3 { font: 800 26px/1.3 var(--corpo); color: var(--texto); }
 .ini .ini-on-texto p { max-width: 60ch; margin-bottom: 16px; }
-.ini .ini-turmas { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start; margin-top: 96px; }
-.ini .ini-turmas h3 { font-size: 72px; }
+.ini .ini-turmas { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; margin-top: 64px; }
+.ini .ini-turmas h3 { font-size: 48px; }
 .ini .ini-turmas .ini-sub { margin: 4px 0 24px; }
 .ini .ini-tl li { display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-top: 1px solid var(--ini-fio); }
 .ini .ini-tl-nome { font-weight: 700; font-size: 19px; line-height: 1.35; }
 .ini .ini-prof { color: var(--texto-suave); font-size: 15px; }
-.ini .ini-imp { margin-top: 64px; }
+.ini .ini-imp { margin-top: 48px; }
 .ini .ini-imp li { padding: 24px 0 12px; border-top: 1px solid var(--ini-fio); }
 .ini .ini-fonte { display: block; font-weight: 800; color: var(--texto); margin-bottom: 4px; }
 .ini .ini-imp p { max-width: 44ch; margin-bottom: 4px; }
 
 /* ---- projetos em andamento e realizados ---- */
-.ini .ini-proj-topo { margin-bottom: 64px; }
-.ini .ini-proj-topo h2 { font-size: 140px; font-size: clamp(88px, 9.72cqi, 140px); }
+.ini .ini-proj-topo { margin-bottom: 40px; }
+.ini .ini-proj-topo h2 { font-size: 84px; font-size: clamp(60px, 5.83cqi, 84px); }
 .ini .ini-cartoes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .ini .ini-cartao {
     display: flex; flex-direction: column; background: var(--ini-cartao); border-radius: 16px; overflow: hidden;
@@ -2741,7 +2741,7 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 }
 .ini .ini-cartao img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
 .ini .ini-corpo { display: flex; flex-direction: column; flex: 1; gap: 12px; padding: 24px 24px 20px; }
-.ini .ini-cartao h3 { font: 800 22px/1.25 var(--corpo); color: var(--texto); }
+.ini .ini-cartao h3 { font: 800 20px/1.25 var(--corpo); color: var(--texto); }
 .ini .ini-cartao p { font-size: 16px; line-height: 1.6; }
 .ini .ini-cartao .ini-lk { align-self: flex-start; margin-top: auto; }
 .ini .ini-cartao .ini-rod { padding-top: 12px; border-top: 1px solid var(--borda); font-size: 14px; font-weight: 700; color: var(--texto-suave); }
@@ -2750,10 +2750,10 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 }
 
 /* ---- corredor cultural (a rota) ---- */
-.ini .ini-cor-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 80px; }
-.ini .ini-cor-topo h2 { font-size: 140px; font-size: clamp(88px, 9.72cqi, 140px); }
+.ini .ini-cor-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 48px; }
+.ini .ini-cor-topo h2 { font-size: 84px; font-size: clamp(60px, 5.83cqi, 84px); }
 .ini .ini-cor-topo .ini-lead { margin-bottom: 0; max-width: 44ch; }
-.ini .ini-rota li { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 24px; padding-bottom: 64px; }
+.ini .ini-rota li { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 24px; padding-bottom: 48px; }
 .ini .ini-rota li:last-child { padding-bottom: 0; }
 .ini .ini-no {
     position: relative; z-index: 1; width: 32px; height: 32px; margin: 8px 0 0 8px; border-radius: 50%;
@@ -2765,51 +2765,51 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 .ini .ini-rota li:last-child::before { display: none; }
 .ini .ini-conteudo { display: flex; gap: 40px; align-items: flex-start; }
 .ini .ini-conteudo img { flex: none; width: 320px; height: auto; border-radius: 16px; }
-.ini .ini-rota h3 { font-size: 64px; margin-bottom: 4px; }
+.ini .ini-rota h3 { font-size: 44px; margin-bottom: 4px; }
 .ini .ini-st { font-weight: 800; color: var(--texto); margin-bottom: 12px; }
 .ini .ini-rota p { max-width: 54ch; margin-bottom: 16px; }
 
 /* ---- tablet ---- */
 @container ini (max-width: 1000px) {
     .ini .ini-wrap { padding-inline: 32px; }
-    .ini .ini-sec { padding-block: 80px; }
-    .ini .ini-capa .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-    .ini .ini-capa .ini-l1 { font-size: 56px; }
-    .ini .ini-capa .ini-l2 { font-size: 150px; }
+    .ini .ini-sec { padding-block: 64px; }
+    .ini .ini-capa .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .ini .ini-capa .ini-l1 { font-size: 40px; }
+    .ini .ini-capa .ini-l2 { font-size: 104px; }
     .ini .ini-atalhos { margin-top: 8px; }
     .ini .ini-fotocapa { height: 420px; }
-    .ini .ini-areas { grid-template-columns: minmax(0, 1fr); gap: 56px; padding-block: 72px; }
-    .ini .ini-area .ini-t1 { font-size: 64px; }
-    .ini .ini-area .ini-t2 { font-size: 96px; }
-    .ini .ini-area .ini-t3 { font-size: 128px; }
+    .ini .ini-areas { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 56px; }
+    .ini .ini-area .ini-t1 { font-size: 40px; }
+    .ini .ini-area .ini-t2 { font-size: 56px; }
+    .ini .ini-area .ini-t3 { font-size: 72px; }
     .ini .ini-area h2 { min-height: 0; }
-    .ini .ini-cursos-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 72px; }
-    .ini .ini-cursos-topo h2 { font-size: 120px; }
-    .ini .ini-turma { grid-template-columns: minmax(0, 1fr); gap: 48px; margin-bottom: 80px; }
+    .ini .ini-cursos-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 48px; }
+    .ini .ini-cursos-topo h2 { font-size: 72px; }
+    .ini .ini-turma { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-bottom: 56px; }
     .ini .ini-turma--inv .ini-disco { order: 0; }
     .ini .ini-turma .ini-disco, .ini .ini-turma--inv .ini-disco { justify-self: start; }
     .ini .ini-mais { grid-template-columns: minmax(0, 1fr); }
-    .ini .ini-aula { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 88px; }
+    .ini .ini-aula { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 64px; }
     .ini .ini-aula figure { max-width: 480px; }
-    .ini .ini-rob .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-block: 88px; }
-    .ini .ini-rob h2 { font-size: 120px; }
+    .ini .ini-rob .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 72px; }
+    .ini .ini-rob h2 { font-size: 72px; }
     .ini .ini-rob-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .ini .ini-cine-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 56px; }
-    .ini .ini-cine-topo h2 { font-size: 120px; }
+    .ini .ini-cine-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 40px; }
+    .ini .ini-cine-topo h2 { font-size: 72px; }
     .ini .ini-linha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
-    .ini .ini-feiras-topo { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-    .ini .ini-feiras-topo h2 { font-size: clamp(56px, 13.5cqi, 100px); }
+    .ini .ini-feiras-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .ini .ini-feiras-topo h2 { font-size: clamp(44px, 8cqi, 60px); }
     .ini .ini-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ini .ini-fotos__video { grid-column: 1 / -1; justify-self: center; width: min(100%, 360px); }
-    .ini .ini-abraz-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-    .ini .ini-abraz-topo h2 { font-size: 120px; }
+    .ini .ini-abraz-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .ini .ini-abraz-topo h2 { font-size: 72px; }
     .ini .ini-nums { grid-template-columns: minmax(0, 1fr); }
-    .ini .ini-nums li { border-left: 0; border-top: 1px solid var(--ini-fio); padding: 24px 0; }
-    .ini .ini-nums .ini-n { min-height: 0; font-size: 112px; }
-    .ini .ini-abraz-texto { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 80px; }
-    .ini .ini-on-topo, .ini .ini-cor-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 56px; }
-    .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: 112px; }
-    .ini .ini-on-texto, .ini .ini-turmas { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 64px; }
+    .ini .ini-nums li { border-left: 0; border-top: 1px solid var(--ini-fio); padding: 20px 0; }
+    .ini .ini-nums .ini-n { min-height: 0; font-size: 64px; }
+    .ini .ini-abraz-texto { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 56px; }
+    .ini .ini-on-topo, .ini .ini-cor-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 40px; }
+    .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: 68px; }
+    .ini .ini-on-texto, .ini .ini-turmas { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 48px; }
     .ini .ini-cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ini .ini-rota .ini-conteudo { flex-direction: column; gap: 24px; }
 }
@@ -2817,49 +2817,49 @@ html[data-tema="escuro"] .acv-seg-thumb { background: #2a63b8; }
 /* ---- celular ---- */
 @container ini (max-width: 600px) {
     .ini .ini-wrap { padding-inline: 20px; }
-    .ini .ini-sec { padding-block: 64px; }
-    .ini .ini-capa .ini-wrap { padding-block: 48px 24px; }
-    .ini .ini-capa .ini-l1 { font-size: 44px; }
-    .ini .ini-capa .ini-l2 { font-size: clamp(72px, 23cqi, 150px); }
-    .ini .ini-lede { font-size: 20px; }
+    .ini .ini-sec { padding-block: 56px; }
+    .ini .ini-capa .ini-wrap { padding-block: 40px 24px; }
+    .ini .ini-capa .ini-l1 { font-size: 32px; }
+    .ini .ini-capa .ini-l2 { font-size: clamp(64px, 19cqi, 104px); }
+    .ini .ini-lede { font-size: 19px; }
     .ini .ini-fotocapa { height: 300px; }
-    .ini .ini-areas { padding-block: 56px; gap: 48px; }
-    .ini .ini-area .ini-t1 { font-size: 56px; }
-    .ini .ini-area .ini-t2 { font-size: 80px; }
-    .ini .ini-area .ini-t3 { font-size: min(104px, 29cqi); }
-    .ini .ini-cursos-topo h2 { font-size: min(96px, 27cqi); }
-    .ini .ini-cursos-topo p { font-size: 18px; }
-    .ini .ini-turma h3 { font-size: 60px; }
+    .ini .ini-areas { padding-block: 48px; gap: 40px; }
+    .ini .ini-area .ini-t1 { font-size: 36px; }
+    .ini .ini-area .ini-t2 { font-size: 48px; }
+    .ini .ini-area .ini-t3 { font-size: min(60px, 17cqi); }
+    .ini .ini-cursos-topo h2 { font-size: min(60px, 17cqi); }
+    .ini .ini-cursos-topo p { font-size: 17px; }
+    .ini .ini-turma h3 { font-size: 40px; }
     .ini .ini-disco { --d: min(288px, calc(100cqi - 64px)); margin: 0 20px 20px 0; }
     .ini .ini-anel { border-width: 6px; transform: translate(20px, 20px); }
     .ini .ini-atalhos { gap: 0 24px; }
-    .ini .ini-nota { font-size: 19px; margin-top: 40px; }
-    .ini .ini-aula h3 { font-size: 64px; }
-    .ini .ini-rob .ini-wrap { padding-block: 64px; gap: 36px; }
-    .ini .ini-rob h2 { font-size: min(92px, 24cqi); }
-    .ini .ini-rob .ini-lead { font-size: 21px; }
+    .ini .ini-nota { font-size: 18px; margin-top: 32px; }
+    .ini .ini-aula h3 { font-size: 40px; }
+    .ini .ini-rob .ini-wrap { padding-block: 56px; gap: 32px; }
+    .ini .ini-rob h2 { font-size: min(60px, 17cqi); }
+    .ini .ini-rob .ini-lead { font-size: 19px; }
     .ini .ini-rob p { font-size: 17px; }
     .ini .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
     .ini .ini-rob-fotos { grid-template-columns: minmax(0, 1fr); }
-    .ini .ini-cine-topo h2 { font-size: min(92px, 26cqi); }
-    .ini .ini-desde { font-size: 40px; }
+    .ini .ini-cine-topo h2 { font-size: min(60px, 17cqi); }
+    .ini .ini-desde { font-size: 28px; }
     .ini .ini-linha { grid-template-columns: minmax(0, 1fr); }
-    .ini .ini-cartazes h3 { font-size: 64px; }
-    .ini .ini-album h3 { font-size: 32px; }
-    .ini .ini-feiras-topo h2 { font-size: 14.8cqi; }
+    .ini .ini-cartazes h3 { font-size: 40px; }
+    .ini .ini-album h3 { font-size: 24px; }
+    .ini .ini-feiras-topo h2 { font-size: min(48px, 11.5cqi); }
     .ini .ini-fotos { gap: 12px; }
-    .ini .ini-abraz-topo h2 { font-size: min(92px, 26cqi); }
-    .ini .ini-nums .ini-n { font-size: 88px; }
-    .ini .ini-abraz-texto h3 { font-size: 26px; }
-    .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: min(84px, 24cqi); }
-    .ini .ini-on-texto h3 { font-size: 26px; }
-    .ini .ini-turmas h3 { font-size: 56px; }
+    .ini .ini-abraz-topo h2 { font-size: min(60px, 17cqi); }
+    .ini .ini-nums .ini-n { font-size: 56px; }
+    .ini .ini-abraz-texto h3 { font-size: 22px; }
+    .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: min(56px, 16cqi); }
+    .ini .ini-on-texto h3 { font-size: 22px; }
+    .ini .ini-turmas h3 { font-size: 40px; }
     .ini .ini-cartoes { grid-template-columns: minmax(0, 1fr); }
     .ini .ini-rota li { grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; }
     .ini .ini-rota .ini-no { margin-left: 0; }
     .ini .ini-rota li::before { left: 14px; }
     .ini .ini-rota .ini-conteudo img { width: 100%; }
-    .ini .ini-rota h3 { font-size: 52px; }
+    .ini .ini-rota h3 { font-size: 36px; }
 }
 
 /* ---- tema escuro: só troca as variáveis e uns poucos fundos ---- */
@@ -2887,108 +2887,108 @@ html[data-tema="escuro"] .ini .ini-fotocapa { background: #0a111d; }
 
 /* ---- navegador sem container queries: o mesmo trecho responsivo, por largura da janela ---- */
 @supports not (container-type: inline-size) {
-    .ini .ini-capa .ini-l1 { font-size: clamp(56px, 5vw, 72px); }
-    .ini .ini-capa .ini-l2 { font-size: clamp(112px, 13.06vw, 188px); }
-    .ini .ini-area .ini-t1 { font-size: clamp(44px, 4.45vw, 64px); }
-    .ini .ini-area .ini-t2 { font-size: clamp(66px, 6.67vw, 96px); }
-    .ini .ini-area .ini-t3 { font-size: clamp(88px, 8.89vw, 128px); }
-    .ini .ini-cursos-topo h2 { font-size: clamp(96px, 10.42vw, 150px); }
-    .ini .ini-rob h2 { font-size: clamp(96px, 10.42vw, 150px); }
-    .ini .ini-cine-topo h2 { font-size: clamp(96px, 10.42vw, 150px); }
-    .ini .ini-feiras-topo h2 { font-size: clamp(56px, calc(7.2vw - 8px), 104px); }
-    .ini .ini-abraz-topo h2 { font-size: clamp(96px, 10.42vw, 150px); }
-    .ini .ini-nums .ini-n { font-size: clamp(72px, 7.78vw, 112px); }
-    .ini .ini-on-topo h2 { font-size: clamp(88px, 9.72vw, 140px); }
-    .ini .ini-proj-topo h2 { font-size: clamp(88px, 9.72vw, 140px); }
-    .ini .ini-cor-topo h2 { font-size: clamp(88px, 9.72vw, 140px); }
+    .ini .ini-capa .ini-l1 { font-size: clamp(36px, 3.06vw, 44px); }
+    .ini .ini-capa .ini-l2 { font-size: clamp(80px, 8.33vw, 120px); }
+    .ini .ini-area .ini-t1 { font-size: clamp(32px, 2.78vw, 40px); }
+    .ini .ini-area .ini-t2 { font-size: clamp(44px, 3.89vw, 56px); }
+    .ini .ini-area .ini-t3 { font-size: clamp(52px, 5vw, 72px); }
+    .ini .ini-cursos-topo h2 { font-size: clamp(64px, 6.11vw, 88px); }
+    .ini .ini-rob h2 { font-size: clamp(64px, 6.11vw, 88px); }
+    .ini .ini-cine-topo h2 { font-size: clamp(64px, 6.11vw, 88px); }
+    .ini .ini-feiras-topo h2 { font-size: clamp(44px, 4.44vw, 64px); }
+    .ini .ini-abraz-topo h2 { font-size: clamp(64px, 6.11vw, 88px); }
+    .ini .ini-nums .ini-n { font-size: clamp(48px, 4.44vw, 64px); }
+    .ini .ini-on-topo h2 { font-size: clamp(60px, 5.83vw, 84px); }
+    .ini .ini-proj-topo h2 { font-size: clamp(60px, 5.83vw, 84px); }
+    .ini .ini-cor-topo h2 { font-size: clamp(60px, 5.83vw, 84px); }
     @media (max-width: 1000px) {
         .ini .ini-wrap { padding-inline: 32px; }
-        .ini .ini-sec { padding-block: 80px; }
-        .ini .ini-capa .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-        .ini .ini-capa .ini-l1 { font-size: 56px; }
-        .ini .ini-capa .ini-l2 { font-size: 150px; }
+        .ini .ini-sec { padding-block: 64px; }
+        .ini .ini-capa .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+        .ini .ini-capa .ini-l1 { font-size: 40px; }
+        .ini .ini-capa .ini-l2 { font-size: 104px; }
         .ini .ini-atalhos { margin-top: 8px; }
         .ini .ini-fotocapa { height: 420px; }
-        .ini .ini-areas { grid-template-columns: minmax(0, 1fr); gap: 56px; padding-block: 72px; }
-        .ini .ini-area .ini-t1 { font-size: 64px; }
-        .ini .ini-area .ini-t2 { font-size: 96px; }
-        .ini .ini-area .ini-t3 { font-size: 128px; }
+        .ini .ini-areas { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 56px; }
+        .ini .ini-area .ini-t1 { font-size: 40px; }
+        .ini .ini-area .ini-t2 { font-size: 56px; }
+        .ini .ini-area .ini-t3 { font-size: 72px; }
         .ini .ini-area h2 { min-height: 0; }
-        .ini .ini-cursos-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 72px; }
-        .ini .ini-cursos-topo h2 { font-size: 120px; }
-        .ini .ini-turma { grid-template-columns: minmax(0, 1fr); gap: 48px; margin-bottom: 80px; }
+        .ini .ini-cursos-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 48px; }
+        .ini .ini-cursos-topo h2 { font-size: 72px; }
+        .ini .ini-turma { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-bottom: 56px; }
         .ini .ini-turma--inv .ini-disco { order: 0; }
         .ini .ini-turma .ini-disco, .ini .ini-turma--inv .ini-disco { justify-self: start; }
         .ini .ini-mais { grid-template-columns: minmax(0, 1fr); }
-        .ini .ini-aula { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 88px; }
+        .ini .ini-aula { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 64px; }
         .ini .ini-aula figure { max-width: 480px; }
-        .ini .ini-rob .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-block: 88px; }
-        .ini .ini-rob h2 { font-size: 120px; }
+        .ini .ini-rob .ini-wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 72px; }
+        .ini .ini-rob h2 { font-size: 72px; }
         .ini .ini-rob-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-        .ini .ini-cine-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 56px; }
-        .ini .ini-cine-topo h2 { font-size: 120px; }
+        .ini .ini-cine-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 40px; }
+        .ini .ini-cine-topo h2 { font-size: 72px; }
         .ini .ini-linha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
-        .ini .ini-feiras-topo { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-        .ini .ini-feiras-topo h2 { font-size: clamp(56px, 13.5vw, 100px); }
+        .ini .ini-feiras-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+        .ini .ini-feiras-topo h2 { font-size: clamp(44px, 8vw, 60px); }
         .ini .ini-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .ini .ini-fotos__video { grid-column: 1 / -1; justify-self: center; width: min(100%, 360px); }
-        .ini .ini-abraz-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-        .ini .ini-abraz-topo h2 { font-size: 120px; }
+        .ini .ini-abraz-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+        .ini .ini-abraz-topo h2 { font-size: 72px; }
         .ini .ini-nums { grid-template-columns: minmax(0, 1fr); }
-        .ini .ini-nums li { border-left: 0; border-top: 1px solid var(--ini-fio); padding: 24px 0; }
-        .ini .ini-nums .ini-n { min-height: 0; font-size: 112px; }
-        .ini .ini-abraz-texto { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 80px; }
-        .ini .ini-on-topo, .ini .ini-cor-topo { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 56px; }
-        .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: 112px; }
-        .ini .ini-on-texto, .ini .ini-turmas { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 64px; }
+        .ini .ini-nums li { border-left: 0; border-top: 1px solid var(--ini-fio); padding: 20px 0; }
+        .ini .ini-nums .ini-n { min-height: 0; font-size: 64px; }
+        .ini .ini-abraz-texto { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 56px; }
+        .ini .ini-on-topo, .ini .ini-cor-topo { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 40px; }
+        .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: 68px; }
+        .ini .ini-on-texto, .ini .ini-turmas { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 48px; }
         .ini .ini-cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .ini .ini-rota .ini-conteudo { flex-direction: column; gap: 24px; }
     }
     @media (max-width: 600px) {
         .ini .ini-wrap { padding-inline: 20px; }
-        .ini .ini-sec { padding-block: 64px; }
-        .ini .ini-capa .ini-wrap { padding-block: 48px 24px; }
-        .ini .ini-capa .ini-l1 { font-size: 44px; }
-        .ini .ini-capa .ini-l2 { font-size: clamp(72px, 23vw, 150px); }
-        .ini .ini-lede { font-size: 20px; }
+        .ini .ini-sec { padding-block: 56px; }
+        .ini .ini-capa .ini-wrap { padding-block: 40px 24px; }
+        .ini .ini-capa .ini-l1 { font-size: 32px; }
+        .ini .ini-capa .ini-l2 { font-size: clamp(64px, 19vw, 104px); }
+        .ini .ini-lede { font-size: 19px; }
         .ini .ini-fotocapa { height: 300px; }
-        .ini .ini-areas { padding-block: 56px; gap: 48px; }
-        .ini .ini-area .ini-t1 { font-size: 56px; }
-        .ini .ini-area .ini-t2 { font-size: 80px; }
-        .ini .ini-area .ini-t3 { font-size: min(104px, 29vw); }
-        .ini .ini-cursos-topo h2 { font-size: min(96px, 27vw); }
-        .ini .ini-cursos-topo p { font-size: 18px; }
-        .ini .ini-turma h3 { font-size: 60px; }
+        .ini .ini-areas { padding-block: 48px; gap: 40px; }
+        .ini .ini-area .ini-t1 { font-size: 36px; }
+        .ini .ini-area .ini-t2 { font-size: 48px; }
+        .ini .ini-area .ini-t3 { font-size: min(60px, 17vw); }
+        .ini .ini-cursos-topo h2 { font-size: min(60px, 17vw); }
+        .ini .ini-cursos-topo p { font-size: 17px; }
+        .ini .ini-turma h3 { font-size: 40px; }
         .ini .ini-disco { --d: min(288px, calc(100vw - 64px)); margin: 0 20px 20px 0; }
         .ini .ini-anel { border-width: 6px; transform: translate(20px, 20px); }
         .ini .ini-atalhos { gap: 0 24px; }
-        .ini .ini-nota { font-size: 19px; margin-top: 40px; }
-        .ini .ini-aula h3 { font-size: 64px; }
-        .ini .ini-rob .ini-wrap { padding-block: 64px; gap: 36px; }
-        .ini .ini-rob h2 { font-size: min(92px, 24vw); }
-        .ini .ini-rob .ini-lead { font-size: 21px; }
+        .ini .ini-nota { font-size: 18px; margin-top: 32px; }
+        .ini .ini-aula h3 { font-size: 40px; }
+        .ini .ini-rob .ini-wrap { padding-block: 56px; gap: 32px; }
+        .ini .ini-rob h2 { font-size: min(60px, 17vw); }
+        .ini .ini-rob .ini-lead { font-size: 19px; }
         .ini .ini-rob p { font-size: 17px; }
         .ini .ini-ficha div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
         .ini .ini-rob-fotos { grid-template-columns: minmax(0, 1fr); }
-        .ini .ini-cine-topo h2 { font-size: min(92px, 26vw); }
-        .ini .ini-desde { font-size: 40px; }
+        .ini .ini-cine-topo h2 { font-size: min(60px, 17vw); }
+        .ini .ini-desde { font-size: 28px; }
         .ini .ini-linha { grid-template-columns: minmax(0, 1fr); }
-        .ini .ini-cartazes h3 { font-size: 64px; }
-        .ini .ini-album h3 { font-size: 32px; }
-        .ini .ini-feiras-topo h2 { font-size: 14.8vw; }
+        .ini .ini-cartazes h3 { font-size: 40px; }
+        .ini .ini-album h3 { font-size: 24px; }
+        .ini .ini-feiras-topo h2 { font-size: min(48px, 11.5vw); }
         .ini .ini-fotos { gap: 12px; }
-        .ini .ini-abraz-topo h2 { font-size: min(92px, 26vw); }
-        .ini .ini-nums .ini-n { font-size: 88px; }
-        .ini .ini-abraz-texto h3 { font-size: 26px; }
-        .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: min(84px, 24vw); }
-        .ini .ini-on-texto h3 { font-size: 26px; }
-        .ini .ini-turmas h3 { font-size: 56px; }
+        .ini .ini-abraz-topo h2 { font-size: min(60px, 17vw); }
+        .ini .ini-nums .ini-n { font-size: 56px; }
+        .ini .ini-abraz-texto h3 { font-size: 22px; }
+        .ini .ini-on-topo h2, .ini .ini-proj-topo h2, .ini .ini-cor-topo h2 { font-size: min(56px, 16vw); }
+        .ini .ini-on-texto h3 { font-size: 22px; }
+        .ini .ini-turmas h3 { font-size: 40px; }
         .ini .ini-cartoes { grid-template-columns: minmax(0, 1fr); }
         .ini .ini-rota li { grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; }
         .ini .ini-rota .ini-no { margin-left: 0; }
         .ini .ini-rota li::before { left: 14px; }
         .ini .ini-rota .ini-conteudo img { width: 100%; }
-        .ini .ini-rota h3 { font-size: 52px; }
+        .ini .ini-rota h3 { font-size: 36px; }
     }
 }
 /* ==== INICIATIVAS: FIM ==== */
